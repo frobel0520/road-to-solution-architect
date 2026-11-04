@@ -1,0 +1,9 @@
+# 只有靜態檔的 Worker（docs/03-system-design.md ADR-001、第 8 節）。第一階段沒有 Worker 程式；
+# 第二階段加 /api/* 時再加 main，網頁與 API 同源。secret 一律用 `wrangler secret put`，不寫在這裡。
+name = "road-to-solution-architect"
+compatibility_date = "2026-10-21"
+
+[assets]
+directory = "./dist"
+not_found_handling = "404-page"
+html_handling = "auto-trailing-slash"

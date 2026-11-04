@@ -38,21 +38,32 @@ GitHub repo（main）
 content/
   modules/
     m00-sa-intro/
-      module.yaml          模組標題、說明、作品集產出
+      module.yaml          模組 id、標題、說明、作品集產出（標題與產出要和課綱一致）
       m00-u01.md           單元：frontmatter＋本文
-      m00-u01-context.svg  單元用的架構圖
+      m00-u01-roles.svg    單元用的架構圖
   case.md                  Example Retail 介紹頁
-  templates/               作品集範本與範例
+  templates/               作品集範本與範例（frontmatter：title、module、summary）
 src/
-  pages/ layouts/ components/
-  progress/                進度模組：純函式＋storage adapter
+  content.config.ts        內容集合，schema 來自 src/lib/content-schema.ts
+  lib/                     內容 schema、課綱解析、單元 HTML 後處理（純函式）
+  progress/                進度模組：model.ts（純函式）＋storage.ts（adapter）
+  scripts/                 瀏覽器端：單元頁、首頁／模組頁
+  pages/ layouts/ components/ styles/
 public/
   _headers                 安全標頭與快取設定
 scripts/
-  validate-content.*       內容結構驗證
+  validate-content.ts      內容結構驗證
+  check-budget.ts          單元頁傳輸量預算
+  build-fixture.ts         用測試用內容建置（E2E）
 tests/
-docs/
+  unit/                    進度模組、課綱解析、內容驗證、單元 HTML
+  e2e/                     Playwright＋套用 _headers 的靜態伺服器
+  fixtures/content/        測試用內容，只給 E2E 使用
+wrangler.toml              只有靜態檔的 Worker
 ```
+
+- 課綱（模組、單元 id、標題、學習目標）只寫在 `docs/curriculum.md` 第 5 節，網站建置時直接讀取；`module.yaml` 與單元 frontmatter 的標題由內容驗證比對。
+- 還沒寫的單元在模組頁顯示「尚未上線」，沒有連結。
 
 原則：內容和程式分開；進度模組不依賴畫面框架，方便測試，第二階段可以換成同步版本。
 
@@ -84,6 +95,10 @@ docs/
 
 本文的段落標題與順序固定，依 `curriculum.md` 第 2 節。內容驗證會檢查段落是否齊全、順序是否正確。
 
+- 「決策題」段落在本文中留空；建置時把 frontmatter 的 `quiz` 轉成題目，插在這個標題下面（題目文字一律跳脫）。
+- 架構圖寫成 `![圖說](./m00-u01-xxx.svg)`，SVG 放在單元旁邊，建置時內嵌進頁面，圖說同時當作 `aria-label` 與 `figcaption`。
+- SVG 規則（內容驗證檢查）：帶 `viewBox` 與 `<title>`；顏色只用 `d-box`、`d-accent`、`d-zone`、`d-line`、`d-arrow`、`d-text`、`d-small`、`d-title` 這些 class，不寫死顏色；不可有 `style`、script、事件屬性或外部連結（CSP 不允許）。
+
 ## 5. 進度儲存（第一階段）
 
 ### 5.1 資料格式
@@ -108,6 +123,7 @@ docs/
 ```
 
 - 未完成的單元，`completedAt` 為 `null`，不省略欄位。
+- 還沒有任何紀錄時，最外層的 `updatedAt` 為 `null`。
 - 只存單元 id、選項 id 與時間，不存任何個資。
 
 ### 5.2 規則
@@ -138,6 +154,7 @@ docs/
 - 記錄受測 commit、環境（本機 preview 與正式網址分開記）、裝置模擬條件、冷／暖快取、樣本數。
 - 沒量測或沒達門檻，記為「待驗收」或「未通過」，不因建置通過就算合格。
 - 門檻是依「手機零碎時間閱讀」的情境訂的初版，樣板內容完成後依實測檢討一次。
+- 傳輸量由 CI 的 `npm run perf:bundle` 檢查；決策題回饋由 E2E 量測。量測紀錄放在 `docs/evidence/`。
 
 ## 7. 資安
 
@@ -145,7 +162,8 @@ docs/
   - CSP 以 `default-src 'self'` 為原則，`frame-ancestors 'none'`、`object-src 'none'`。
   - `X-Content-Type-Options: nosniff`、`X-Frame-Options: DENY`、`Referrer-Policy`、`Permissions-Policy`。
   - HTML 設 `Cache-Control: no-cache`；檔名含 hash 的靜態檔可以長期快取。
-- 是否接 Harbor 的維護模式腳本，在里程碑 2 決定；接的話 CSP 要加入 Harbor 的來源。
+- 是否接 Harbor 的維護模式腳本，在里程碑 2 決定；接的話 CSP 要加入 Harbor 的來源。目前沒有接，CSP 只允許本站。
+- Astro 預設會把小的腳本與樣式內嵌，`astro.config.mjs` 已設定一律輸出成外部檔案，CSP 不需要 `'unsafe-inline'`。
 - 依賴稽核：CI 遇到 high／critical 漏洞時失敗；稽核本身失敗算未完成。
 - Markdown 在建置時轉成 HTML，內容來源只有本 repo。
 
@@ -166,9 +184,12 @@ docs/
 | 類型 | 內容 |
 |---|---|
 | 單元測試 | 進度模組的純函式：格式錯誤、版本升級、合併、時間邊界 |
-| 內容驗證（CI） | frontmatter 必填欄位與型別；id 唯一且格式正確；每題剛好一個正確選項且每個選項都有解析；單元數與 `curriculum.md` 一致；段落齊全且順序正確；提到 AWS 服務的單元有 `sources` 與查證日期 |
-| E2E（Playwright） | 完成單元後重新整理，進度仍在；作答後顯示解析；localStorage 無法使用時顯示提示；手機（390×844）與桌機（1440×900）沒有水平捲動 |
+| 內容驗證（CI） | frontmatter 必填欄位與型別；id 唯一且格式正確；每題剛好一個正確選項且每個選項都有解析；課綱是 14 個模組、68 個單元，每個單元 id 與標題都對得上課綱（分批上線，未上線的單元只列入統計）；段落齊全且順序正確；提到 AWS 服務的單元有 `sources`、查證日期與「延伸閱讀」 |
+| E2E（Playwright） | 完成單元後重新整理，進度仍在；作答後顯示解析；localStorage 無法使用時顯示提示；資料損壞時先備份再提示；手機（390×844）與桌機（1440×900）沒有水平捲動；每頁沒有 CSP 違規或 console 錯誤 |
 | 內容正確性 | 使用者審閱，`status` 改為 `reviewed`；和結構驗證分開記錄 |
+
+- 「提到 AWS 服務」的判斷：出現 EC2、S3、Lambda、DynamoDB、IAM 等服務名稱，或「AWS／Amazon＋服務名」。單獨寫「AWS」指雲端平台本身，不算。
+- E2E 用 `tests/fixtures/content` 建置（`npm run build:fixture`），不依賴正式內容的文字；測試伺服器會套用 `public/_headers`，所以 CSP 也在 E2E 裡驗證。
 | 效能 | 第 6 節 |
 
 ## 10. ADR

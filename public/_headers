@@ -1,0 +1,13 @@
+# 以 Harbor standards/deployment-templates/worker-static-assets/_headers 為基礎（docs/03-system-design.md 第 7 節）。
+# 不載入任何第三方資源，所以只允許本站來源；樣式與腳本都是外部檔案，不開 'unsafe-inline'。
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Cache-Control: no-cache
+
+# Astro 輸出的檔名含 hash，可以長期快取。
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable

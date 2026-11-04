@@ -1,0 +1,39 @@
+---
+import UnitList from "../../components/UnitList.astro";
+import Base from "../../layouts/Base.astro";
+import { loadModules, moduleLabel, type ModuleView } from "../../lib/site-data.ts";
+
+export async function getStaticPaths() {
+	const modules = await loadModules();
+	return modules.map((module) => ({ params: { module: module.id }, props: { module } }));
+}
+
+interface Props {
+	module: ModuleView;
+}
+
+const { module } = Astro.props;
+---
+
+<Base title={`${moduleLabel(module.number)} ${module.title}`} description={module.summary ?? undefined}>
+	<p class="muted"><a href="/">學習路線</a> ／ {moduleLabel(module.number)}</p>
+	<h1>{module.title}</h1>
+	<div class="prose">
+		{module.summary && <p>{module.summary}</p>}
+		{module.portfolio && <p>作品集產出：{module.portfolio}（範本見<a href="/templates/">作品集範本</a>）</p>}
+		{
+			module.publishedIds.length > 0 ? (
+				<p class="progress-summary" data-progress-summary={module.publishedIds.join(",")}>
+					已上線 {module.publishedIds.length}／{module.units.length} 個單元
+				</p>
+			) : (
+				<p class="progress-summary">本模組內容製作中。</p>
+			)
+		}
+	</div>
+	<UnitList units={module.units} />
+</Base>
+
+<script>
+	import "../../scripts/overview.ts";
+</script>

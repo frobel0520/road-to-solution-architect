@@ -1,0 +1,11 @@
+node_modules/
+dist/
+dist-fixture/
+.astro/
+test-results/
+playwright-report/
+evidence-tmp/
+.wrangler/
+.env
+.env.*
+!.env.example

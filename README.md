@@ -12,7 +12,23 @@
 
 ## 現況
 
-文件階段：專案計畫、系統設計（精簡版）、課綱與內容規範已完成，尚未開始開發。網站還沒上線。
+網站骨架已完成（Astro 靜態輸出、進度存在瀏覽器、CI）。課程內容製作中；網站還沒上線，部署待擁有者設定 Cloudflare secrets。
+
+## 開發
+
+需要 Node 22.23.4 以上。
+
+```bash
+npm ci
+npm run dev              # 本機開發
+npm run check            # 型別、lint、單元測試、內容驗證、依賴稽核
+npm run build            # 建置正式內容到 dist/
+npm run perf:bundle      # 單元頁傳輸量預算
+npm run build:fixture    # 用測試用內容建置到 dist-fixture/
+npm run e2e              # Playwright（需先 build:fixture；第一次要 npx playwright install chromium）
+```
+
+內容寫在 `content/`，格式見 `docs/03-system-design.md` 第 4 節與 `docs/curriculum.md` 第 2、3 節。
 
 ## 文件
 
@@ -21,6 +37,7 @@
 | [`docs/01-project-plan.md`](docs/01-project-plan.md) | 目標、範圍、里程碑、風險 |
 | [`docs/03-system-design.md`](docs/03-system-design.md) | 架構、內容模型、進度儲存、效能與資安、ADR |
 | [`docs/curriculum.md`](docs/curriculum.md) | 課綱、單元格式、寫作規則、案例設定 |
+| [`docs/evidence/`](docs/evidence/) | 效能與驗收紀錄 |
 | [`progress.md`](progress.md) | 進度與待辦 |
 
 ## 專案級別

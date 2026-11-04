@@ -1,0 +1,15 @@
+---
+import { getEntry } from "astro:content";
+import Base from "../layouts/Base.astro";
+
+const page = await getEntry("pages", "case");
+if (!page) throw new Error("content/case.md 不存在");
+const title = typeof page.data.title === "string" ? page.data.title : "Example Retail";
+---
+
+<Base title={title} current="case" description="整門課共用的虛構企業案例。">
+	<article class="prose">
+		<h1>{title}</h1>
+		<div set:html={page.rendered?.html ?? ""} />
+	</article>
+</Base>
