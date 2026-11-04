@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 400"><title>SA 在業務端與交付端之間的位置</title>
+<defs><marker id="m00u01-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-zone" x="8" y="8" width="344" height="96" rx="8"/>
+<text class="d-small" x="20" y="28">業務端：提出目標與限制</text>
+<rect class="d-box" x="20" y="40" width="100" height="48" rx="6"/><text class="d-text" x="70" y="69" text-anchor="middle">營運長</text>
+<rect class="d-box" x="130" y="40" width="100" height="48" rx="6"/><text class="d-text" x="180" y="69" text-anchor="middle">行銷／門市</text>
+<rect class="d-box" x="240" y="40" width="100" height="48" rx="6"/><text class="d-text" x="290" y="69" text-anchor="middle">資安／法務</text>
+<path class="d-line" d="M180 106 V140" marker-start="url(#m00u01-arrow)" marker-end="url(#m00u01-arrow)"/>
+<text class="d-small" x="190" y="128">需求、預算、取捨</text>
+<rect class="d-box d-accent" x="40" y="144" width="280" height="96" rx="8"/>
+<text class="d-title" x="180" y="172" text-anchor="middle">Solution Architect</text>
+<text class="d-text" x="180" y="198" text-anchor="middle">方案能不能在限制內成立</text>
+<text class="d-small" x="180" y="222" text-anchor="middle">架構、ADR、成本與風險、驗收標準</text>
+<path class="d-line" d="M180 242 V276" marker-start="url(#m00u01-arrow)" marker-end="url(#m00u01-arrow)"/>
+<text class="d-small" x="190" y="264">交付規格、驗收</text>
+<rect class="d-zone" x="8" y="280" width="344" height="112" rx="8"/>
+<text class="d-small" x="20" y="300">交付端：實作與維運</text>
+<rect class="d-box" x="20" y="312" width="100" height="64" rx="6"/><text class="d-text" x="70" y="340" text-anchor="middle">Tech Lead</text><text class="d-small" x="70" y="360" text-anchor="middle">單一系統</text>
+<rect class="d-box" x="130" y="312" width="100" height="64" rx="6"/><text class="d-text" x="180" y="340" text-anchor="middle">工程師</text><text class="d-small" x="180" y="360" text-anchor="middle">AI agent</text>
+<rect class="d-box" x="240" y="312" width="100" height="64" rx="6"/><text class="d-text" x="290" y="340" text-anchor="middle">外包廠商</text><text class="d-small" x="290" y="360" text-anchor="middle">電商平台</text>
+</svg>

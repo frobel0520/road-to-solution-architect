@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 300"><title>AI 交付前後的工作比重（示意）</title>
+<text class="d-title" x="16" y="28">過去</text>
+<rect class="d-box" x="16" y="40" width="56" height="44" rx="4"/><text class="d-small" x="44" y="66" text-anchor="middle">規格</text>
+<rect class="d-box d-accent" x="72" y="40" width="176" height="44" rx="4"/><text class="d-text" x="160" y="67" text-anchor="middle">實作</text>
+<rect class="d-box" x="248" y="40" width="48" height="44" rx="4"/><text class="d-small" x="272" y="66" text-anchor="middle">審查</text>
+<rect class="d-box" x="296" y="40" width="48" height="44" rx="4"/><text class="d-small" x="320" y="66" text-anchor="middle">驗收</text>
+<text class="d-title" x="16" y="136">交給 coding agent 之後</text>
+<rect class="d-box d-accent" x="16" y="148" width="112" height="44" rx="4"/><text class="d-text" x="72" y="175" text-anchor="middle">規格</text>
+<rect class="d-box" x="128" y="148" width="48" height="44" rx="4"/><text class="d-small" x="152" y="174" text-anchor="middle">實作</text>
+<rect class="d-box d-accent" x="176" y="148" width="84" height="44" rx="4"/><text class="d-text" x="218" y="175" text-anchor="middle">審查</text>
+<rect class="d-box d-accent" x="260" y="148" width="84" height="44" rx="4"/><text class="d-text" x="302" y="175" text-anchor="middle">整合驗收</text>
+<path class="d-line" d="M16 226 H344"/>
+<text class="d-small" x="16" y="250">寬度表示時間比重，只是示意，不是量測數據。</text>
+<text class="d-small" x="16" y="272">實作縮短後，說清楚要什麼與確認做對了，</text>
+<text class="d-small" x="16" y="292">成為主要的工作。</text>
+</svg>
