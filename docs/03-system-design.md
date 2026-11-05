@@ -169,7 +169,7 @@ wrangler.toml              只有靜態檔的 Worker
 
 ## 8. 部署與零月費
 
-- **平台**：Cloudflare Worker static assets，Worker 名稱 `road-to-solution-architect`，網址為 `<worker>.<subdomain>.workers.dev`（部署後回填 README）。
+- **平台**：Cloudflare Worker static assets，Worker 名稱 `road-to-solution-architect`，網址為 <https://road-to-solution-architect.curio-lab.workers.dev/>（2026-11-05 第一次部署）。
 - **Workflow**：以 Harbor 範本 `standards/deployment-templates/github-actions/deploy-worker.yml` 為基礎。只在 `main` push 或擁有者手動觸發時部署；PR 只跑檢查。
 - **擁有者事前設定**：GitHub Secrets `CLOUDFLARE_API_TOKEN`、`CLOUDFLARE_ACCOUNT_ID`（部署手冊 4.1）。
 - **Rollback**：`wrangler rollback` 回上一版，或 revert PR 後由 CI 重新部署。
