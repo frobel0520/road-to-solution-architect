@@ -18,6 +18,7 @@
 ## 待辦
 
 - [ ] 【高】Owner 審閱模組 0、1 的風格與難度，通過的單元改成 `status: reviewed`；作品集範本（能力自評表、需求分析文件）尚未製作。
+- [ ] 【中】做成 PWA（2026-11-05 使用者提出）：參考 Family（`frontend/public/` 的 manifest、圖示、`sw.js`）加 manifest、192／512 與 apple-touch 圖示、`display: standalone`；service worker 改做課程頁離線快取（Family 的只做推播）；CSP 加 `manifest-src`、`worker-src` 為 `'self'`；手機實測安裝與離線閱讀，零月費。預估 1～2 小時，分支 `feature/<YYYYMMDD>-pwa`。
 - [ ] 【中】決定是否接 Harbor 的維護模式腳本（影響 CSP）。
 - [ ] 【中】已在 Harbor 登錄（2026-11-04，slug `road-to-solution-architect`）；補網址與健康檢查、加入「學習」群組；在 Learning Atlas 加入本課程的路線。
 - [ ] 【低】依賴稽核有 11 個 moderate（eslint 依賴的 minimatch），只在開發工具裡，等上游修正。
