@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420"><title>建議的學習路線</title>
+<defs><marker id="m00u03-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<text class="d-small" x="16" y="24">依序讀：基本功</text>
+<rect class="d-box d-accent" x="16" y="34" width="74" height="48" rx="6"/><text class="d-text" x="53" y="63" text-anchor="middle">模組 0</text>
+<rect class="d-box d-accent" x="102" y="34" width="74" height="48" rx="6"/><text class="d-text" x="139" y="63" text-anchor="middle">模組 1</text>
+<rect class="d-box d-accent" x="188" y="34" width="74" height="48" rx="6"/><text class="d-text" x="225" y="63" text-anchor="middle">模組 2</text>
+<rect class="d-box d-accent" x="274" y="34" width="70" height="48" rx="6"/><text class="d-text" x="309" y="63" text-anchor="middle">模組 3</text>
+<path class="d-line" d="M90 58 H100" marker-end="url(#m00u03-arrow)"/>
+<path class="d-line" d="M176 58 H186" marker-end="url(#m00u03-arrow)"/>
+<path class="d-line" d="M262 58 H272" marker-end="url(#m00u03-arrow)"/>
+<path class="d-line" d="M180 84 V118" marker-end="url(#m00u03-arrow)"/>
+<rect class="d-box" x="60" y="120" width="240" height="40" rx="6"/><text class="d-text" x="180" y="145" text-anchor="middle">用自評表找出短板</text>
+<path class="d-line" d="M180 162 V190" marker-end="url(#m00u03-arrow)"/>
+<rect class="d-zone" x="8" y="194" width="344" height="132" rx="8"/>
+<text class="d-small" x="20" y="214">依短板選讀</text>
+<rect class="d-box" x="20" y="224" width="100" height="40" rx="6"/><text class="d-small" x="70" y="249" text-anchor="middle">4 整合</text>
+<rect class="d-box" x="130" y="224" width="100" height="40" rx="6"/><text class="d-small" x="180" y="249" text-anchor="middle">5 資料</text>
+<rect class="d-box" x="240" y="224" width="100" height="40" rx="6"/><text class="d-small" x="290" y="249" text-anchor="middle">6 雲端</text>
+<rect class="d-box" x="20" y="274" width="76" height="40" rx="6"/><text class="d-small" x="58" y="299" text-anchor="middle">7 資安</text>
+<rect class="d-box" x="104" y="274" width="76" height="40" rx="6"/><text class="d-small" x="142" y="299" text-anchor="middle">8 可靠性</text>
+<rect class="d-box" x="188" y="274" width="76" height="40" rx="6"/><text class="d-small" x="226" y="299" text-anchor="middle">9 AI 交付</text>
+<rect class="d-box" x="272" y="274" width="68" height="40" rx="6"/><text class="d-small" x="306" y="299" text-anchor="middle">10、11</text>
+<path class="d-line" d="M180 328 V356" marker-end="url(#m00u03-arrow)"/>
+<rect class="d-box d-accent" x="40" y="360" width="280" height="48" rx="6"/><text class="d-text" x="180" y="389" text-anchor="middle">模組 12 Capstone → 模組 13 職涯</text>
+</svg>

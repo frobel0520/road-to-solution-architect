@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420"><title>會員平台的系統邊界</title>
+<defs><marker id="m01u02-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-box" x="20" y="16" width="150" height="52" rx="6"/><text class="d-text" x="95" y="40" text-anchor="middle">會員（顧客）</text><text class="d-small" x="95" y="58" text-anchor="middle">App、門市</text>
+<rect class="d-box" x="190" y="16" width="150" height="52" rx="6"/><text class="d-text" x="265" y="40" text-anchor="middle">行銷部</text><text class="d-small" x="265" y="58" text-anchor="middle">活動設定</text>
+<path class="d-line" d="M95 70 V122" marker-end="url(#m01u02-arrow)"/>
+<path class="d-line" d="M265 70 V122" marker-end="url(#m01u02-arrow)"/>
+<rect class="d-zone" x="40" y="126" width="280" height="120" rx="10"/>
+<text class="d-small" x="52" y="146">範圍內</text>
+<rect class="d-box d-accent" x="70" y="156" width="220" height="74" rx="8"/>
+<text class="d-title" x="180" y="184" text-anchor="middle">會員平台</text>
+<text class="d-small" x="180" y="208" text-anchor="middle">會員合併、點數、取貨查詢</text>
+<path class="d-line" d="M90 248 V300" marker-start="url(#m01u02-arrow)" marker-end="url(#m01u02-arrow)"/>
+<path class="d-line" d="M180 248 V300" marker-start="url(#m01u02-arrow)" marker-end="url(#m01u02-arrow)"/>
+<path class="d-line" d="M270 248 V300" marker-start="url(#m01u02-arrow)" marker-end="url(#m01u02-arrow)"/>
+<text class="d-small" x="100" y="282">交易</text>
+<text class="d-small" x="190" y="282">商品</text>
+<text class="d-small" x="280" y="282">異動檔</text>
+<rect class="d-box" x="20" y="304" width="100" height="52" rx="6"/><text class="d-text" x="70" y="328" text-anchor="middle">POS</text><text class="d-small" x="70" y="346" text-anchor="middle">外部，不修改</text>
+<rect class="d-box" x="130" y="304" width="100" height="52" rx="6"/><text class="d-text" x="180" y="328" text-anchor="middle">ERP</text><text class="d-small" x="180" y="346" text-anchor="middle">外部，不修改</text>
+<rect class="d-box" x="240" y="304" width="100" height="52" rx="6"/><text class="d-text" x="290" y="328" text-anchor="middle">電商平台</text><text class="d-small" x="290" y="346" text-anchor="middle">外包，只讀</text>
+<rect class="d-zone" x="20" y="372" width="320" height="36" rx="6"/>
+<text class="d-small" x="180" y="395" text-anchor="middle">排除：點數轉贈、促銷活動管理、會員等級</text>
+</svg>

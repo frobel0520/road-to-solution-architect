@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420"><title>需求追溯鏈</title>
+<defs><marker id="m01u07-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-box d-accent" x="60" y="12" width="240" height="48" rx="6"/><text class="d-text" x="180" y="34" text-anchor="middle">業務目標</text><text class="d-small" x="180" y="52" text-anchor="middle">門市作業不中斷</text>
+<path class="d-line" d="M130 62 V92" marker-end="url(#m01u07-arrow)"/>
+<path class="d-line" d="M230 62 V92" marker-end="url(#m01u07-arrow)"/>
+<rect class="d-box" x="16" y="96" width="156" height="56" rx="6"/><text class="d-text" x="94" y="120" text-anchor="middle">需求</text><text class="d-small" x="94" y="140" text-anchor="middle">結帳時累積點數</text>
+<rect class="d-box" x="188" y="96" width="156" height="56" rx="6"/><text class="d-text" x="266" y="120" text-anchor="middle">品質情境</text><text class="d-small" x="266" y="140" text-anchor="middle">平台斷線照常結帳</text>
+<path class="d-line" d="M94 154 V184" marker-end="url(#m01u07-arrow)"/>
+<path class="d-line" d="M266 154 V184" marker-end="url(#m01u07-arrow)"/>
+<rect class="d-box" x="60" y="188" width="240" height="48" rx="6"/><text class="d-text" x="180" y="210" text-anchor="middle">設計決定</text><text class="d-small" x="180" y="228" text-anchor="middle">交易暫存與補送（ADR）</text>
+<path class="d-line" d="M180 238 V268" marker-end="url(#m01u07-arrow)"/>
+<rect class="d-box" x="60" y="272" width="240" height="48" rx="6"/><text class="d-text" x="180" y="294" text-anchor="middle">驗收案例</text><text class="d-small" x="180" y="312" text-anchor="middle">給定斷線，當結帳，則完成</text>
+<path class="d-line" d="M180 322 V352" marker-end="url(#m01u07-arrow)"/>
+<rect class="d-box d-accent" x="60" y="356" width="240" height="48" rx="6"/><text class="d-text" x="180" y="378" text-anchor="middle">證據</text><text class="d-small" x="180" y="396" text-anchor="middle">測試報告、量測紀錄、簽核</text>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 440"><title>門市會員查點數的現況與目標流程</title>
+<defs><marker id="m01u04-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<text class="d-title" x="16" y="24">現況</text>
+<rect class="d-box" x="16" y="36" width="96" height="44" rx="6"/><text class="d-small" x="64" y="62" text-anchor="middle">詢問手機號碼</text>
+<rect class="d-box" x="132" y="36" width="96" height="44" rx="6"/><text class="d-small" x="180" y="62" text-anchor="middle">POS 查門市點數</text>
+<rect class="d-box" x="248" y="36" width="96" height="44" rx="6"/><text class="d-small" x="296" y="62" text-anchor="middle">電話問電商客服</text>
+<rect class="d-box" x="248" y="112" width="96" height="44" rx="6"/><text class="d-small" x="296" y="138" text-anchor="middle">查不到：寫紙條</text>
+<rect class="d-box" x="132" y="112" width="96" height="44" rx="6"/><text class="d-small" x="180" y="138" text-anchor="middle">隔天手動補登</text>
+<path class="d-line" d="M112 58 H130" marker-end="url(#m01u04-arrow)"/>
+<path class="d-line" d="M228 58 H246" marker-end="url(#m01u04-arrow)"/>
+<path class="d-line" d="M296 80 V110" marker-end="url(#m01u04-arrow)"/>
+<path class="d-line" d="M248 134 H230" marker-end="url(#m01u04-arrow)"/>
+<rect class="d-zone" x="242" y="30" width="108" height="132" rx="8"/>
+<text class="d-small" x="296" y="180" text-anchor="middle">斷點：電話、紙條</text>
+<path class="d-line" d="M16 200 H344"/>
+<text class="d-title" x="16" y="228">目標（第一階段）</text>
+<rect class="d-box" x="16" y="240" width="96" height="44" rx="6"/><text class="d-small" x="64" y="266" text-anchor="middle">掃 App 條碼</text>
+<rect class="d-box d-accent" x="132" y="240" width="96" height="44" rx="6"/><text class="d-small" x="180" y="260" text-anchor="middle">POS 呼叫</text><text class="d-small" x="180" y="276" text-anchor="middle">會員平台</text>
+<rect class="d-box d-accent" x="248" y="240" width="96" height="44" rx="6"/><text class="d-small" x="296" y="260" text-anchor="middle">回傳合併</text><text class="d-small" x="296" y="276" text-anchor="middle">後的點數</text>
+<path class="d-line" d="M112 262 H130" marker-end="url(#m01u04-arrow)"/>
+<path class="d-line" d="M228 262 H246" marker-end="url(#m01u04-arrow)"/>
+<path class="d-line" d="M180 286 V318" marker-end="url(#m01u04-arrow)"/>
+<rect class="d-box" x="100" y="320" width="160" height="56" rx="6"/><text class="d-small" x="180" y="344" text-anchor="middle">平台無法連線：</text><text class="d-small" x="180" y="362" text-anchor="middle">照常結帳，點數稍後補上</text>
+<text class="d-small" x="16" y="408">藍底是新平台負責的步驟。</text>
+<text class="d-small" x="16" y="428">例外情況由系統處理，不再靠紙條。</text>
+</svg>

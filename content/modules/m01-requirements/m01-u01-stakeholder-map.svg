@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 380"><title>利害關係人地圖</title>
+<defs><marker id="m01u01-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<path class="d-line" d="M40 340 V24" marker-end="url(#m01u01-arrow)"/>
+<path class="d-line" d="M40 340 H348" marker-end="url(#m01u01-arrow)"/>
+<text class="d-small" x="34" y="18" text-anchor="start">影響力高</text>
+<text class="d-small" x="348" y="364" text-anchor="end">關心程度高 →</text>
+<path class="d-zone" d="M194 32 V336 M44 184 H344"/>
+<rect class="d-box d-accent" x="48" y="36" width="142" height="144" rx="6"/>
+<text class="d-title" x="119" y="58" text-anchor="middle">主動取得限制</text>
+<text class="d-text" x="119" y="90" text-anchor="middle">資安負責人</text>
+<text class="d-small" x="119" y="114" text-anchor="middle">影響力高、平常少參與</text>
+<rect class="d-box d-accent" x="198" y="36" width="146" height="144" rx="6"/>
+<text class="d-title" x="271" y="58" text-anchor="middle">密切合作</text>
+<text class="d-text" x="271" y="88" text-anchor="middle">營運長</text>
+<text class="d-text" x="271" y="112" text-anchor="middle">行銷部</text>
+<text class="d-text" x="271" y="136" text-anchor="middle">門市營運部</text>
+<text class="d-text" x="271" y="160" text-anchor="middle">IT 主管</text>
+<rect class="d-box" x="48" y="188" width="142" height="144" rx="6"/>
+<text class="d-title" x="119" y="210" text-anchor="middle">定期更新</text>
+<text class="d-text" x="119" y="242" text-anchor="middle">會員（顧客）</text>
+<text class="d-small" x="119" y="266" text-anchor="middle">透過客訴與數據觀察</text>
+<rect class="d-box" x="198" y="188" width="146" height="144" rx="6"/>
+<text class="d-title" x="271" y="210" text-anchor="middle">保持告知</text>
+<text class="d-text" x="271" y="242" text-anchor="middle">外包電商廠商</text>
+<text class="d-text" x="271" y="266" text-anchor="middle">門市店員</text>
+</svg>

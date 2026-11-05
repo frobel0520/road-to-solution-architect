@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 400"><title>會員平台的 use case 圖</title>
+<rect class="d-zone" x="96" y="12" width="168" height="376" rx="10"/>
+<text class="d-small" x="180" y="32" text-anchor="middle">會員平台</text>
+<ellipse class="d-box d-accent" cx="180" cy="74" rx="78" ry="28"/><text class="d-small" x="180" y="70" text-anchor="middle">門市結帳時</text><text class="d-small" x="180" y="86" text-anchor="middle">累積點數</text>
+<ellipse class="d-box d-accent" cx="180" cy="148" rx="78" ry="28"/><text class="d-small" x="180" y="144" text-anchor="middle">電商下單時</text><text class="d-small" x="180" y="160" text-anchor="middle">累積點數</text>
+<ellipse class="d-box d-accent" cx="180" cy="222" rx="78" ry="28"/><text class="d-small" x="180" y="226" text-anchor="middle">查詢可用點數</text>
+<ellipse class="d-box d-accent" cx="180" cy="296" rx="78" ry="28"/><text class="d-small" x="180" y="292" text-anchor="middle">合併門市與</text><text class="d-small" x="180" y="308" text-anchor="middle">電商會員</text>
+<ellipse class="d-box d-accent" cx="180" cy="360" rx="78" ry="22"/><text class="d-small" x="180" y="365" text-anchor="middle">設定點數活動</text>
+<rect class="d-box" x="6" y="52" width="76" height="40" rx="6"/><text class="d-small" x="44" y="77" text-anchor="middle">門市店員</text>
+<rect class="d-box" x="6" y="202" width="76" height="40" rx="6"/><text class="d-small" x="44" y="227" text-anchor="middle">會員</text>
+<rect class="d-box" x="6" y="340" width="76" height="40" rx="6"/><text class="d-small" x="44" y="365" text-anchor="middle">行銷人員</text>
+<rect class="d-box" x="278" y="52" width="76" height="40" rx="6"/><text class="d-small" x="316" y="77" text-anchor="middle">POS</text>
+<rect class="d-box" x="278" y="128" width="76" height="40" rx="6"/><text class="d-small" x="316" y="153" text-anchor="middle">電商平台</text>
+<path class="d-line" d="M82 72 L102 74"/>
+<path class="d-line" d="M82 222 L102 222"/>
+<path class="d-line" d="M82 222 L106 290"/>
+<path class="d-line" d="M82 360 L102 360"/>
+<path class="d-line" d="M278 72 L258 74"/>
+<path class="d-line" d="M278 148 L258 148"/>
+<path class="d-line" d="M278 160 L250 286"/>
+</svg>
