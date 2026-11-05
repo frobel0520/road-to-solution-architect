@@ -1,6 +1,6 @@
 # 進度
 
-## 目前狀態（2026-11-04）
+## 目前狀態（2026-11-05）
 
 - 里程碑 1（文件）：完成。ADR-001～004 全部定案（ADR-002、ADR-004 於 2026-11-04 由使用者確認）。
 - 里程碑 2（網站骨架）：PR 待審，分支 `feature/20261104-site-skeleton`。
@@ -8,19 +8,19 @@
   - 驗證：本機 `npm run check` 通過（型別、lint、79 個單元測試、內容驗證、依賴稽核無 high／critical）；E2E 30 個通過（手機、桌機）。
   - 效能：傳輸量與決策題回饋在測試用內容上通過；LCP／CLS／TBT 待驗收（見 `docs/evidence/perf-20261104-skeleton.md`）。
   - 部署：待 Owner 設定 Cloudflare secrets。
-- 里程碑 3（模組 0、1 樣板內容）：進行中，分支 `feature/20261104-m00-m01-content`（從骨架分支切出，已 push，未開 PR）。
-  - 已寫（draft，通過內容驗證）：module.yaml ×2、m00-u01～u03、m01-u01～u03，各附一張 SVG。
-  - 未寫：m01-u04（流程建模）、m01-u05（資料建模）、m01-u06（品質屬性情境）、m01-u07（驗收條件與需求追溯）。
-  - m01-u02、u03 約 1,500 字，低於建議的 2,000 字（驗證只警告），可補一段實例。
+- 里程碑 3（模組 0、1 樣板內容）：10／10 個單元寫完（全部 draft），[PR #2](https://github.com/frobel0520/road-to-solution-architect/pull/2) 待審，分支 `feature/20261104-m00-m01-content`（base 是骨架分支，PR #1 合併後改 main）。
+  - 內容：module.yaml ×2、m00-u01～u03、m01-u01～u07，每個單元 2 題決策題、1 張 SVG。
+  - 驗證：內容驗證 10／68 個單元，錯誤 0、警告 0；`npm run check` 通過（79 個單元測試）；建置 28 頁；正式內容 14 頁在手機與桌機寬度沒有水平捲動與 CSP 違規。
+  - 效能（本機）：單元頁最大 10.8 KB、JS 2.9 KB；Lighthouse mobile 各 10 次，LCP p95 ≤ 1,358 ms、CLS 0、TBT 0（見內容分支的 `docs/evidence/perf-20261105-m00-m01.md`）。正式網址待驗收。
+  - 未做：作品集範本（能力自評表、需求分析文件）。
   - 寫作時注意：案例設定只用 `docs/curriculum.md` 第 4 節（例如沒有加盟店）；SVG 寬 360、只用 d-* class；不寫 AWS 服務名稱以免需要來源。
 
 ## 待辦
 
-- [ ] 【高】審閱並合併骨架 PR。
+- [ ] 【高】審閱並合併骨架 PR #1，再把 PR #2 的 base 改成 main。
 - [ ] 【高】擁有者在 GitHub Secrets 設定 `CLOUDFLARE_API_TOKEN`、`CLOUDFLARE_ACCOUNT_ID`；設定後手動觸發 workflow 部署，網址回填 README。
-- [ ] 【高】里程碑 3：補完 m01-u04～u07，跑 `npm run check`、`npm run build`、`npm run perf:bundle`，commit message 給使用者確認後 push、開 PR（骨架 PR 合併後 base 改 main）。
-- [ ] 【高】模組 0、1 交給使用者審閱風格與難度；作品集範本（能力自評表、需求分析文件）尚未製作。
-- [ ] 【高】正式內容上線後，用 Lighthouse 量 LCP、CLS、TBT（本機與正式網址分開記錄）。
+- [ ] 【高】審閱 PR #2：模組 0、1 的風格與難度；作品集範本（能力自評表、需求分析文件）尚未製作。
+- [ ] 【高】部署後用 `scripts/perf-lighthouse.mjs` 對正式網址量 LCP、CLS、TBT（本機已量）。
 - [ ] 【中】決定是否接 Harbor 的維護模式腳本（影響 CSP）。
 - [ ] 【中】已在 Harbor 登錄（2026-11-04，slug `road-to-solution-architect`）；上線後補網址與健康檢查、加入「學習」群組；在 Learning Atlas 加入本課程的路線。
 - [ ] 【低】依賴稽核有 11 個 moderate（eslint 依賴的 minimatch），只在開發工具裡，等上游修正。
@@ -29,7 +29,7 @@
 
 ## 交接
 
-- 分支：`main`（文件）；`feature/20261104-site-skeleton`（骨架，PR #1 待審，CI 通過）；`feature/20261104-m00-m01-content`（內容進行中，已 push，未開 PR）。
+- 分支：`main`（文件）；`feature/20261104-site-skeleton`（骨架，PR #1 待審，CI 通過）；`feature/20261104-m00-m01-content`（10 個單元 draft，PR #2 待審）。
 - 開發前先讀 `AGENTS.md`、`docs/01`、`docs/03`、`docs/curriculum.md`；開發指令見骨架分支的 README「開發」。
 - 證據位置：`docs/evidence/`（在骨架分支）。
 - 換裝置接手：`git fetch` 後讀這份 `progress.md`，再切到上面「進行中」的分支繼續；不需要讀 Harbor。Harbor 上的交接文件只是備份，保存 7 天。
