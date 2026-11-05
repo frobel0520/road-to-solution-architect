@@ -1,0 +1,207 @@
+{
+  "dist": "dist",
+  "limits": {
+    "totalBytes": 153600,
+    "jsBytes": 30720
+  },
+  "unitPages": [
+    {
+      "page": "/units/m01-u02/index.html",
+      "htmlBytes": 6044,
+      "cssBytes": 2064,
+      "jsBytes": 2994,
+      "totalBytes": 11102
+    },
+    {
+      "page": "/units/m00-u03/index.html",
+      "htmlBytes": 5916,
+      "cssBytes": 2064,
+      "jsBytes": 2994,
+      "totalBytes": 10974
+    },
+    {
+      "page": "/units/m01-u01/index.html",
+      "htmlBytes": 5881,
+      "cssBytes": 2064,
+      "jsBytes": 2994,
+      "totalBytes": 10939
+    },
+    {
+      "page": "/units/m01-u04/index.html",
+      "htmlBytes": 5876,
+      "cssBytes": 2064,
+      "jsBytes": 2994,
+      "totalBytes": 10934
+    },
+    {
+      "page": "/units/m00-u02/index.html",
+      "htmlBytes": 5817,
+      "cssBytes": 2064,
+      "jsBytes": 2994,
+      "totalBytes": 10875
+    },
+    {
+      "page": "/units/m01-u03/index.html",
+      "htmlBytes": 5739,
+      "cssBytes": 2064,
+      "jsBytes": 2994,
+      "totalBytes": 10797
+    },
+    {
+      "page": "/units/m00-u01/index.html",
+      "htmlBytes": 5664,
+      "cssBytes": 2064,
+      "jsBytes": 2994,
+      "totalBytes": 10722
+    },
+    {
+      "page": "/units/m01-u07/index.html",
+      "htmlBytes": 5664,
+      "cssBytes": 2064,
+      "jsBytes": 2994,
+      "totalBytes": 10722
+    },
+    {
+      "page": "/units/m01-u06/index.html",
+      "htmlBytes": 5548,
+      "cssBytes": 2064,
+      "jsBytes": 2994,
+      "totalBytes": 10606
+    },
+    {
+      "page": "/units/m01-u05/index.html",
+      "htmlBytes": 5421,
+      "cssBytes": 2064,
+      "jsBytes": 2994,
+      "totalBytes": 10479
+    }
+  ],
+  "otherPages": [
+    {
+      "page": "/index.html",
+      "htmlBytes": 2038,
+      "cssBytes": 2064,
+      "jsBytes": 2628,
+      "totalBytes": 6730
+    },
+    {
+      "page": "/modules/m01/index.html",
+      "htmlBytes": 1380,
+      "cssBytes": 2064,
+      "jsBytes": 2628,
+      "totalBytes": 6072
+    },
+    {
+      "page": "/modules/m09/index.html",
+      "htmlBytes": 1189,
+      "cssBytes": 2064,
+      "jsBytes": 2628,
+      "totalBytes": 5881
+    },
+    {
+      "page": "/modules/m00/index.html",
+      "htmlBytes": 1148,
+      "cssBytes": 2064,
+      "jsBytes": 2628,
+      "totalBytes": 5840
+    },
+    {
+      "page": "/modules/m06/index.html",
+      "htmlBytes": 1127,
+      "cssBytes": 2064,
+      "jsBytes": 2628,
+      "totalBytes": 5819
+    },
+    {
+      "page": "/modules/m02/index.html",
+      "htmlBytes": 1086,
+      "cssBytes": 2064,
+      "jsBytes": 2628,
+      "totalBytes": 5778
+    },
+    {
+      "page": "/modules/m07/index.html",
+      "htmlBytes": 1070,
+      "cssBytes": 2064,
+      "jsBytes": 2628,
+      "totalBytes": 5762
+    },
+    {
+      "page": "/modules/m08/index.html",
+      "htmlBytes": 1070,
+      "cssBytes": 2064,
+      "jsBytes": 2628,
+      "totalBytes": 5762
+    },
+    {
+      "page": "/modules/m04/index.html",
+      "htmlBytes": 1065,
+      "cssBytes": 2064,
+      "jsBytes": 2628,
+      "totalBytes": 5757
+    },
+    {
+      "page": "/modules/m10/index.html",
+      "htmlBytes": 1065,
+      "cssBytes": 2064,
+      "jsBytes": 2628,
+      "totalBytes": 5757
+    },
+    {
+      "page": "/modules/m03/index.html",
+      "htmlBytes": 1059,
+      "cssBytes": 2064,
+      "jsBytes": 2628,
+      "totalBytes": 5751
+    },
+    {
+      "page": "/modules/m05/index.html",
+      "htmlBytes": 1043,
+      "cssBytes": 2064,
+      "jsBytes": 2628,
+      "totalBytes": 5735
+    },
+    {
+      "page": "/modules/m11/index.html",
+      "htmlBytes": 1036,
+      "cssBytes": 2064,
+      "jsBytes": 2628,
+      "totalBytes": 5728
+    },
+    {
+      "page": "/modules/m12/index.html",
+      "htmlBytes": 1010,
+      "cssBytes": 2064,
+      "jsBytes": 2628,
+      "totalBytes": 5702
+    },
+    {
+      "page": "/modules/m13/index.html",
+      "htmlBytes": 1010,
+      "cssBytes": 2064,
+      "jsBytes": 2628,
+      "totalBytes": 5702
+    },
+    {
+      "page": "/case/index.html",
+      "htmlBytes": 2160,
+      "cssBytes": 2064,
+      "jsBytes": 0,
+      "totalBytes": 4224
+    },
+    {
+      "page": "/templates/index.html",
+      "htmlBytes": 852,
+      "cssBytes": 2064,
+      "jsBytes": 282,
+      "totalBytes": 3198
+    },
+    {
+      "page": "/404.html",
+      "htmlBytes": 725,
+      "cssBytes": 2064,
+      "jsBytes": 0,
+      "totalBytes": 2789
+    }
+  ]
+}

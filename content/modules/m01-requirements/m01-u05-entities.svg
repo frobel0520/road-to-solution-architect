@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420"><title>會員平台的概念資料模型</title>
+<rect class="d-box d-accent" x="110" y="16" width="140" height="52" rx="6"/><text class="d-title" x="180" y="40" text-anchor="middle">會員</text><text class="d-small" x="180" y="58" text-anchor="middle">會員編號</text>
+<path class="d-line" d="M180 70 V100 M90 100 H270 M90 100 V120 M270 100 V120"/>
+<text class="d-small" x="192" y="92">1 對多</text>
+<rect class="d-box" x="20" y="122" width="140" height="52" rx="6"/><text class="d-text" x="90" y="146" text-anchor="middle">通路帳號</text><text class="d-small" x="90" y="164" text-anchor="middle">門市</text>
+<rect class="d-box" x="200" y="122" width="140" height="52" rx="6"/><text class="d-text" x="270" y="146" text-anchor="middle">通路帳號</text><text class="d-small" x="270" y="164" text-anchor="middle">電商</text>
+<path class="d-line" d="M90 176 V212"/>
+<path class="d-line" d="M270 176 V212"/>
+<rect class="d-box" x="20" y="214" width="140" height="52" rx="6"/><text class="d-text" x="90" y="238" text-anchor="middle">交易</text><text class="d-small" x="90" y="256" text-anchor="middle">門市結帳</text>
+<rect class="d-box" x="200" y="214" width="140" height="52" rx="6"/><text class="d-text" x="270" y="238" text-anchor="middle">交易／取貨訂單</text><text class="d-small" x="270" y="256" text-anchor="middle">電商下單、指定門市</text>
+<path class="d-line" d="M90 268 V300 H180 M270 268 V300 H180 M180 300 V318"/>
+<text class="d-small" x="192" y="314">產生</text>
+<rect class="d-box d-accent" x="70" y="320" width="220" height="64" rx="6"/><text class="d-title" x="180" y="344" text-anchor="middle">點數異動</text><text class="d-small" x="180" y="364" text-anchor="middle">來源、數量、到期日；只新增</text>
+<text class="d-small" x="180" y="408" text-anchor="middle">可用點數＝由點數異動計算的結果</text>
+</svg>
