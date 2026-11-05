@@ -1,0 +1,62 @@
+---
+import Base from "../layouts/Base.astro";
+import { loadModules, moduleLabel } from "../lib/site-data.ts";
+
+const modules = await loadModules();
+const published = modules.flatMap((module) => module.publishedIds);
+const total = modules.reduce((sum, module) => sum + module.units.length, 0);
+const lookup = modules.flatMap((module) => module.units.filter((unit) => unit.entry));
+---
+
+<Base title="Road to Solution Architect" current="home">
+	<section class="prose">
+		<h1>Road to Solution Architect</h1>
+		<p>
+			給工程師的 Solution Architect 自學課程。程式交給 AI coding agent 撰寫，你負責需求、架構、交付規格與驗收。每個單元 10～15
+			分鐘，手機和電腦都能讀，整門課用同一家虛構企業 <a href="/case/">Example Retail</a> 當案例。
+		</p>
+		<p class="progress-summary" data-progress-summary={published.join(",")}>已上線 {published.length}／{total} 個單元</p>
+		<p id="resume" hidden>繼續上次閱讀：<a id="resume-link" href="/">—</a></p>
+	</section>
+
+	<h2>學習路線</h2>
+	<p class="muted">建議依序讀模組 0 → 1 → 2 → 3，之後可以依興趣跳讀；模組 12 留到最後。</p>
+	<ol class="card-list grid">
+		{
+			modules.map((module) => (
+				<li class="card">
+					<h3>
+						<a href={`/modules/${module.id}/`}>
+							{moduleLabel(module.number)}　{module.title}
+						</a>
+					</h3>
+					<p class="card-meta">
+						<span>{module.units.length} 個單元</span>
+						{module.portfolio && <span>作品集產出：{module.portfolio}</span>}
+					</p>
+					<p class="card-meta">
+						{module.publishedIds.length > 0 ? (
+							<span data-progress-summary={module.publishedIds.join(",")}>已上線 {module.publishedIds.length} 個單元</span>
+						) : (
+							<span>製作中</span>
+						)}
+					</p>
+				</li>
+			))
+		}
+	</ol>
+
+	<div hidden>
+		{
+			lookup.map((unit) => (
+				<span data-unit-row={unit.id}>
+					<span data-unit-title>{unit.title}</span>
+				</span>
+			))
+		}
+	</div>
+</Base>
+
+<script>
+	import "../scripts/overview.ts";
+</script>

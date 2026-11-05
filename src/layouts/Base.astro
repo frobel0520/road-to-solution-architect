@@ -1,0 +1,41 @@
+---
+import "../styles/global.css";
+
+interface Props {
+	title: string;
+	description?: string;
+	current?: "home" | "case" | "templates";
+}
+
+const { title, description = "給工程師的 Solution Architect 自學課程。", current } = Astro.props;
+const siteName = "Road to Solution Architect";
+const pageTitle = title === siteName ? siteName : `${title}｜${siteName}`;
+---
+
+<!doctype html>
+<html lang="zh-Hant-TW">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={description} />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<title>{pageTitle}</title>
+	</head>
+	<body>
+		<a class="skip-link" href="#main">跳到主要內容</a>
+		<header class="site-header">
+			<nav aria-label="主選單">
+				<a class="site-name" href="/" aria-current={current === "home" ? "page" : undefined}>{siteName}</a>
+				<a href="/case/" aria-current={current === "case" ? "page" : undefined}>Example Retail</a>
+				<a href="/templates/" aria-current={current === "templates" ? "page" : undefined}>作品集範本</a>
+			</nav>
+		</header>
+		<div id="progress-banner" class="banner" role="status" hidden></div>
+		<main id="main">
+			<slot />
+		</main>
+		<footer class="site-footer">
+			<p>學習進度只存在這個瀏覽器。清除瀏覽器資料或使用無痕模式時，進度不會保留。</p>
+		</footer>
+	</body>
+</html>

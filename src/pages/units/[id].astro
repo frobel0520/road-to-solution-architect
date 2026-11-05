@@ -1,0 +1,98 @@
+---
+import { readFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import type { CollectionEntry } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import { loadModules, moduleLabel } from "../../lib/site-data.ts";
+import { inlineDiagrams, insertQuiz, renderQuizHtml } from "../../lib/unit-html.ts";
+
+export async function getStaticPaths() {
+	// getStaticPaths 會被單獨抽出執行，用到的函式要寫在裡面。
+	const pick = (entry: CollectionEntry<"units"> | undefined) => (entry ? { id: entry.data.id, title: entry.data.title } : null);
+	const modules = await loadModules();
+	const ordered = modules.flatMap((module) => module.units.flatMap((unit) => (unit.entry ? [{ entry: unit.entry, module }] : [])));
+	return ordered.map(({ entry, module }, index) => ({
+		params: { id: entry.data.id },
+		props: {
+			entry,
+			moduleId: module.id,
+			moduleNumber: module.number,
+			moduleTitle: module.title,
+			previous: index > 0 ? pick(ordered[index - 1]?.entry) : null,
+			next: index < ordered.length - 1 ? pick(ordered[index + 1]?.entry) : null,
+		},
+	}));
+}
+
+interface Props {
+	entry: CollectionEntry<"units">;
+	moduleId: string;
+	moduleNumber: number;
+	moduleTitle: string;
+	previous: { id: string; title: string } | null;
+	next: { id: string; title: string } | null;
+}
+
+const { entry, moduleId, moduleNumber, moduleTitle, previous, next } = Astro.props;
+const unit = entry.data;
+const folder = dirname(entry.filePath ?? "");
+const body = insertQuiz(
+	inlineDiagrams(entry.rendered?.html ?? "", (src) => readFileSync(join(folder, src), "utf8")),
+	renderQuizHtml(unit.id, unit.quiz),
+);
+---
+
+<Base title={unit.title} description={unit.objectives[0]}>
+	<article data-unit={unit.id} data-complete="false">
+		<header class="unit-header prose">
+			<p class="muted">
+				<a href={`/modules/${moduleId}/`}>{moduleLabel(moduleNumber)}　{moduleTitle}</a> ／ 第 {unit.order} 單元
+			</p>
+			<h1>{unit.title}</h1>
+			<p class="card-meta">
+				<span>約 {unit.minutes} 分鐘</span>
+				{unit.status === "draft" && <span class="badge">內容待審閱</span>}
+			</p>
+			<div class="objectives">
+				<strong>學完這個單元，你能夠：</strong>
+				<ul>
+					{unit.objectives.map((objective) => <li>{objective}</li>)}
+				</ul>
+			</div>
+		</header>
+
+		<div class="prose" set:html={body} />
+
+		{
+			unit.sources.length > 0 && (
+				<section class="prose" aria-labelledby="sources-title">
+					<h2 id="sources-title">查證來源</h2>
+					<ul>
+						{unit.sources.map((source) => (
+							<li>
+								<a href={source.url} rel="noopener noreferrer">
+									{source.title}
+								</a>
+								（查證日期 {source.checkedOn}）
+							</li>
+						))}
+					</ul>
+				</section>
+			)
+		}
+
+		<div class="complete-box prose">
+			<button id="complete-button" class="button" type="button">完成本單元</button>
+			<span id="complete-status" role="status"></span>
+		</div>
+
+		<nav class="unit-nav" aria-label="上一個與下一個單元">
+			{previous ? <a href={`/units/${previous.id}/`}>← {previous.title}</a> : <span />}
+			{next ? <a href={`/units/${next.id}/`}>{next.title} →</a> : <a href="/">回到學習路線</a>}
+		</nav>
+	</article>
+</Base>
+
+<script>
+	import "../../scripts/unit-page.ts";
+</script>

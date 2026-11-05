@@ -1,0 +1,41 @@
+---
+import type { ModuleView } from "../lib/site-data.ts";
+
+interface Props {
+	units: ModuleView["units"];
+}
+
+const { units } = Astro.props;
+---
+
+<ol class="card-list">
+	{
+		units.map((unit) =>
+			unit.entry ? (
+				<li class="card unit-row" data-unit-row={unit.id} data-complete="false">
+					<span class="check" aria-hidden="true" />
+					<div class="unit-body">
+						<h3>
+							<a href={`/units/${unit.id}/`} data-unit-title>
+								{unit.title}
+							</a>
+						</h3>
+						<p class="card-meta">
+							<span>約 {unit.entry.data.minutes} 分鐘</span>
+							{unit.entry.data.status === "draft" && <span class="badge">內容待審閱</span>}
+							<span class="badge done" data-complete-label hidden />
+						</p>
+					</div>
+				</li>
+			) : (
+				<li class="card unit-row unpublished">
+					<span class="check" aria-hidden="true" />
+					<div class="unit-body">
+						<h3>{unit.title}</h3>
+						<p class="card-meta">尚未上線</p>
+					</div>
+				</li>
+			),
+		)
+	}
+</ol>

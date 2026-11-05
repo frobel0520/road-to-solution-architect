@@ -1,0 +1,53 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { moduleLabel } from "../lib/site-data.ts";
+
+const templates = (await getCollection("templates")).sort((a, b) => a.data.module - b.data.module);
+---
+
+<Base title="作品集範本" current="templates" description="可以複製的作品集範本與 Example Retail 範例。">
+	<div class="prose">
+		<h1>作品集範本</h1>
+		<p>每份範本都可以複製成 Markdown，貼到你自己的 repo 或文件裡撰寫。網站不收集任何作品。</p>
+	</div>
+	{
+		templates.length === 0 ? (
+			<p class="card">範本製作中，會隨模組內容一起上線。</p>
+		) : (
+			<ol class="card-list">
+				{templates.map((template) => (
+					<li class="card" data-template>
+						<h2>{template.data.title}</h2>
+						<p class="card-meta">
+							<span>{moduleLabel(template.data.module)}</span>
+						</p>
+						<p>{template.data.summary}</p>
+						<pre class="template-source" data-template-source>{template.body?.trim()}</pre>
+						<p>
+							<button class="button secondary" type="button" data-copy>
+								複製 Markdown
+							</button>
+							<span role="status" data-copy-status />
+						</p>
+					</li>
+				))}
+			</ol>
+		)
+	}
+</Base>
+
+<script>
+	for (const card of document.querySelectorAll<HTMLElement>("[data-template]")) {
+		const source = card.querySelector<HTMLElement>("[data-template-source]");
+		const status = card.querySelector<HTMLElement>("[data-copy-status]");
+		card.querySelector("[data-copy]")?.addEventListener("click", async () => {
+			try {
+				await navigator.clipboard.writeText(source?.textContent?.trim() ?? "");
+				if (status) status.textContent = "已複製";
+			} catch {
+				if (status) status.textContent = "無法自動複製，請手動選取內容";
+			}
+		});
+	}
+</script>
