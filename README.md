@@ -12,7 +12,9 @@
 
 ## 現況
 
-網站骨架已完成（Astro 靜態輸出、進度存在瀏覽器、CI）。課程內容製作中；網站還沒上線，部署待擁有者設定 Cloudflare secrets。
+網站：<https://road-to-solution-architect.curio-lab.workers.dev/>（2026-11-05 上線）。
+
+已上線模組 0、1 共 10 個單元（草稿，待審閱）；其餘模組製作中。進度只存在瀏覽器，第二階段才加入登入同步。
 
 ## 開發
 
