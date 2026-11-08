@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360"><title>TCP 重送遺失的封包，UDP 直接跳過</title>
+<defs><marker id="m01u02-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-zone" x="8" y="8" width="168" height="344" rx="8"/>
+<text class="d-title" x="92" y="32" text-anchor="middle">TCP</text>
+<text class="d-small" x="92" y="52" text-anchor="middle">先建立連線</text>
+<rect class="d-box" x="24" y="64" width="40" height="32" rx="4"/><text class="d-text" x="44" y="85" text-anchor="middle">1</text>
+<rect class="d-zone" x="72" y="64" width="40" height="32" rx="4"/><text class="d-small" x="92" y="85" text-anchor="middle">遺失</text>
+<rect class="d-box" x="120" y="64" width="40" height="32" rx="4"/><text class="d-text" x="140" y="85" text-anchor="middle">3</text>
+<path class="d-line" d="M92 100 V128" marker-end="url(#m01u02-arrow)"/>
+<text class="d-small" x="100" y="120">重送</text>
+<rect class="d-box d-accent" x="72" y="132" width="40" height="32" rx="4"/><text class="d-text" x="92" y="153" text-anchor="middle">2</text>
+<path class="d-line" d="M92 168 V200" marker-end="url(#m01u02-arrow)"/>
+<rect class="d-box" x="24" y="204" width="136" height="40" rx="6"/><text class="d-text" x="92" y="229" text-anchor="middle">程式收到 1、2、3</text>
+<text class="d-small" x="92" y="276" text-anchor="middle">完整、照順序</text>
+<text class="d-small" x="92" y="296" text-anchor="middle">但要等重送</text>
+<rect class="d-zone" x="184" y="8" width="168" height="344" rx="8"/>
+<text class="d-title" x="268" y="32" text-anchor="middle">UDP</text>
+<text class="d-small" x="268" y="52" text-anchor="middle">直接送出</text>
+<rect class="d-box" x="200" y="64" width="40" height="32" rx="4"/><text class="d-text" x="220" y="85" text-anchor="middle">1</text>
+<rect class="d-zone" x="248" y="64" width="40" height="32" rx="4"/><text class="d-small" x="268" y="85" text-anchor="middle">遺失</text>
+<rect class="d-box" x="296" y="64" width="40" height="32" rx="4"/><text class="d-text" x="316" y="85" text-anchor="middle">3</text>
+<path class="d-line" d="M268 100 V200" marker-end="url(#m01u02-arrow)"/>
+<text class="d-small" x="276" y="150">不補送</text>
+<rect class="d-box" x="200" y="204" width="136" height="40" rx="6"/><text class="d-text" x="268" y="229" text-anchor="middle">程式收到 1、3</text>
+<text class="d-small" x="268" y="276" text-anchor="middle">不用等</text>
+<text class="d-small" x="268" y="296" text-anchor="middle">但可能少資料</text>
+</svg>

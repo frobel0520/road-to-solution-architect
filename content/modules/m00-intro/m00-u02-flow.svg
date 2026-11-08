@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420"><title>單元的閱讀流程與讀完模組後的速查表</title>
+<defs><marker id="m00u02-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-zone" x="8" y="8" width="200" height="404" rx="8"/>
+<text class="d-small" x="20" y="28">一個單元</text>
+<rect class="d-box" x="28" y="40" width="160" height="40" rx="6"/><text class="d-text" x="108" y="65" text-anchor="middle">情境</text>
+<path class="d-line" d="M108 82 V96" marker-end="url(#m00u02-arrow)"/>
+<rect class="d-box" x="28" y="100" width="160" height="40" rx="6"/><text class="d-text" x="108" y="125" text-anchor="middle">觀念</text>
+<path class="d-line" d="M108 142 V156" marker-end="url(#m00u02-arrow)"/>
+<rect class="d-box" x="28" y="160" width="160" height="40" rx="6"/><text class="d-text" x="108" y="185" text-anchor="middle">架構圖</text>
+<path class="d-line" d="M108 202 V216" marker-end="url(#m00u02-arrow)"/>
+<rect class="d-box d-accent" x="28" y="220" width="160" height="40" rx="6"/><text class="d-text" x="108" y="245" text-anchor="middle">取捨</text>
+<path class="d-line" d="M108 262 V276" marker-end="url(#m00u02-arrow)"/>
+<rect class="d-box d-accent" x="28" y="280" width="160" height="40" rx="6"/><text class="d-text" x="108" y="305" text-anchor="middle">決策題</text>
+<path class="d-line" d="M108 322 V336" marker-end="url(#m00u02-arrow)"/>
+<rect class="d-box" x="28" y="340" width="160" height="40" rx="6"/><text class="d-text" x="108" y="365" text-anchor="middle">重點回顧</text>
+<path class="d-line" d="M190 300 H200 V240 H192" marker-end="url(#m00u02-arrow)"/>
+<text class="d-small" x="214" y="268">答錯或猜對</text>
+<text class="d-small" x="214" y="284">回去對照取捨</text>
+<rect class="d-box" x="226" y="340" width="122" height="40" rx="6"/><text class="d-text" x="287" y="365" text-anchor="middle">模組速查表</text>
+<path class="d-line" d="M190 360 H222" marker-end="url(#m00u02-arrow)"/>
+<text class="d-small" x="226" y="398">讀完整個模組後</text>
+</svg>

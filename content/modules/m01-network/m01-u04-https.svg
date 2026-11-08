@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 340"><title>HTTPS 加密通道保護的範圍</title>
+<defs><marker id="m01u04-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-box d-accent" x="12" y="60" width="88" height="56" rx="6"/><text class="d-text" x="56" y="93" text-anchor="middle">瀏覽器</text>
+<rect class="d-box" x="260" y="60" width="88" height="56" rx="6"/><text class="d-text" x="304" y="93" text-anchor="middle">伺服器</text>
+<rect class="d-zone" x="108" y="40" width="144" height="96" rx="8"/>
+<text class="d-small" x="180" y="58" text-anchor="middle">TLS 加密通道</text>
+<path class="d-line" d="M112 82 H248" marker-end="url(#m01u04-arrow)"/>
+<text class="d-small" x="180" y="76" text-anchor="middle">GET /products/123</text>
+<path class="d-line" d="M248 112 H112" marker-end="url(#m01u04-arrow)"/>
+<text class="d-small" x="180" y="106" text-anchor="middle">200 商品資料</text>
+<text class="d-small" x="180" y="164" text-anchor="middle">通道外看得到：連到 shop.example.com</text>
+<text class="d-small" x="180" y="182" text-anchor="middle">看不到：路徑、標頭、本文</text>
+<path class="d-line" d="M304 118 V232" marker-end="url(#m01u04-arrow)"/>
+<rect class="d-box" x="244" y="236" width="104" height="48" rx="6"/><text class="d-text" x="296" y="265" text-anchor="middle">資料庫</text>
+<text class="d-small" x="12" y="252">資料存進伺服器後，</text>
+<text class="d-small" x="12" y="270">怎麼存、誰能看，</text>
+<text class="d-small" x="12" y="288">不在 HTTPS 的保護範圍</text>
+</svg>
