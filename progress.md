@@ -20,12 +20,13 @@
   - PR #6 於 2026-11-08 合併並部署（main `5cd02b9`）。
   - 效能（本機）：LCP p95 ≤ 1,359 ms、CLS 0、TBT 0，單元頁最大 10.4 KB（`docs/evidence/perf-20261108-m00-m01-tech.md`）。
   - 效能（正式網址）：第 2 輪全部通過（首頁 LCP p95 2,066 ms），作答回饋 p95 ≤ 14.6 ms；第 1 輪首頁 p95 3,091 ms 未過，超標的是部署後第一次請求，列為已知限制（`docs/evidence/perf-20261108-production.md`）。
+- PWA（2026-11-08）：manifest、192／512／maskable 與 apple-touch 圖示；`npm run build` 後產生 `dist/sw.js`，預先快取全部頁面與資源，頁面先連網路、失敗才用快取。驗證：88 個單元測試、E2E 34 個通過（含離線開單元頁）；本機預覽確認 service worker 啟用、CSP 含 `worker-src`。
 - 寫作時注意：案例設定只用 `docs/curriculum.md` 第 4 節；SVG 寬 360、只用 d-* class；不寫產品或雲端服務名稱，除非附來源。
 
 ## 待辦
 
 - [ ] 【高】Owner 審閱新模組 0、1（7 個單元）與模組 1 速查表的風格與難度；通過的單元改成 `status: reviewed`。確認後才寫模組 2、3（`docs/curriculum.md` 第 7 節批次 2）。
-- [ ] 【中】做成 PWA（2026-11-05 使用者提出）：參考 Family（`frontend/public/` 的 manifest、圖示、`sw.js`）加 manifest、192／512 與 apple-touch 圖示、`display: standalone`；service worker 改做課程頁離線快取（Family 的只做推播）；CSP 加 `manifest-src`、`worker-src` 為 `'self'`；手機實測安裝與離線閱讀，零月費。預估 1～2 小時，分支 `feature/<YYYYMMDD>-pwa`。
+- [ ] 【中】PWA 手機實機驗收：2026-11-08 已實作（manifest、圖示、service worker 預先快取全部頁面、CSP 加 `worker-src`，見 `docs/03` 第 12 節），E2E 驗過離線開單元頁；還要用手機實際「加到主畫面」並開飛航模式閱讀。
 - [ ] 【中】決定是否接 Harbor 的維護模式腳本（影響 CSP）。
 - [ ] 【中】在 Learning Atlas 加入本課程的路線。Harbor 已補網址、加入「學習」群組，首輪探測正常（2026-11-08）。
 - [ ] 【低】追蹤部署後第一次請求的首頁 LCP（2026-11-08 量到 3,091 ms，超過 2.5 秒）：下次部署後再量第 1 輪，確認是否每次都發生。
