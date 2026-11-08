@@ -20,7 +20,7 @@ const { module } = Astro.props;
 	<h1>{module.title}</h1>
 	<div class="prose">
 		{module.summary && <p>{module.summary}</p>}
-		{module.portfolio && <p>作品集產出：{module.portfolio}（範本見<a href="/templates/">作品集範本</a>）</p>}
+		{module.portfolio && <p>產出：{module.portfolio}（範本見<a href="/templates/">速查表</a>）</p>}
 		{
 			module.publishedIds.length > 0 ? (
 				<p class="progress-summary" data-progress-summary={module.publishedIds.join(",")}>

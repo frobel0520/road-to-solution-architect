@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { createEmptyProgress, markComplete } from "../../src/progress/model.ts";
-import { BACKUP_PREFIX, ProgressStore, STORAGE_KEY, type KeyValueStorage } from "../../src/progress/storage.ts";
+import { BACKUP_PREFIX, LEGACY_KEYS, ProgressStore, STORAGE_KEY, type KeyValueStorage } from "../../src/progress/storage.ts";
 
 const NOW = new Date("2026-11-04T10:00:00.000Z");
 const clock = () => NOW;
@@ -31,6 +31,14 @@ describe("ProgressStore", () => {
 		const progress = markComplete(createEmptyProgress(), "m00-u01", NOW);
 		expect(store.save(progress)).toBe(true);
 		expect(new ProgressStore(storage, clock).load()).toEqual({ status: "ready", progress });
+	});
+
+	it("載入時刪除 CR-001 改版前的舊進度，不讀進新課綱", () => {
+		const storage = new MemoryStorage();
+		storage.data.set(LEGACY_KEYS[0], JSON.stringify(markComplete(createEmptyProgress(), "m00-u01", NOW)));
+		expect(new ProgressStore(storage, clock).load()).toEqual({ status: "ready", progress: createEmptyProgress() });
+		expect(storage.data.has(LEGACY_KEYS[0])).toBe(false);
+		expect(STORAGE_KEY).not.toBe(LEGACY_KEYS[0]);
 	});
 
 	it("沒有 storage 時回報無法使用", () => {
