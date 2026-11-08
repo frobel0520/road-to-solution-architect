@@ -29,3 +29,18 @@
 - Lighthouse：`node scripts/perf-lighthouse.mjs <正式網址> docs/evidence/lighthouse-20261108-production.json 10`，第 2 輪輸出到 `lighthouse-20261108-production-run2.json`，每次樣本都在 JSON 裡。
 - 作答回饋：沿用 `tests/e2e/quiz-latency.spec.ts` 的量法，改成正式網址與 `/units/m00-u01/` 第 1 題第一個選項；一次性執行，沒有加進 CI。
 - 正式網址每頁都多了真實網路往返，LCP 比本機（p95 ≤ 1,359 ms）多約 500～700 ms。
+
+## 追加：PR #8（PWA）部署後第 1 輪（2026-11-08）
+
+追蹤上面「部署後第一次請求超標」的限制。main `01da09a` 的「Deploy Worker」成功後立刻量，同樣 3 頁各 10 次。
+
+| 頁面 | LCP p50／p95 | CLS | TBT p95 | 判定 |
+|---|---|---|---|---|
+| 首頁 | 1,616／1,856 ms（第 1 次 1,856 ms） | 0 | 0 ms | 通過 |
+| 模組頁 | 1,676／1,779 ms | 0 | 0 ms | 通過 |
+| 單元頁 | 1,592／1,751 ms | 0 | 0 ms | 通過 |
+
+- 這次沒有重現 3 秒以上的冷請求；原因仍未確認，所以只能說「不是每次部署都會發生」。
+- 量測期間我在內建瀏覽器開了一次首頁確認 service worker，時間在 Lighthouse 開始之後，可能讓後面的樣本吃到邊緣快取。
+- 原始樣本：`lighthouse-20261108-production-pwa.json`。
+- 同時確認正式網址：`/sw.js`、`/manifest.webmanifest`、圖示都回 200；CSP 含 `worker-src 'self'`；瀏覽器裡 service worker 為 activated，預先快取 38 個網址。
