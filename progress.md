@@ -17,7 +17,7 @@
 
 ## 待辦
 
-- [ ] 【高】CR-001（2026-11-08 提出）：Owner 審閱後決定課程方向改為「軟體工程技術導覽」（Web 與網路基礎、資料與後端；概念＋何時用、不寫程式），沿用本 repo。新課綱提案與 5 項待決事項見 `docs/change-requests/CR-001-tech-survey.md`；核准前不改 `docs/curriculum.md` 與內容，也不寫新單元。原「審閱模組 0、1、製作 SA 作品集範本」暫停，依 CR-001 待決第 2、4 項處理。
+- [ ] 【高】CR-001（2026-11-08 提出）：Owner 審閱後決定課程方向改為「軟體工程技術導覽」（Web 與網路基礎、資料與後端；概念＋何時用、不寫程式），沿用本 repo。同日 Owner 核准新課綱（導論＋6 模組、30 單元）與 5 項決定：舊模組 0、1 移出網站保留封存、網站改名 SWE Trial（網址不變）、作品集改成技術選擇速查表、與 Atlas「請求的一生」不互相引用（見 `docs/change-requests/CR-001-tech-survey.md`）。下一步依 CR-001 第 7 節：先改 `docs/01`、`docs/curriculum.md`，再封存舊單元、改名，然後寫新模組 0、1 樣板。原「審閱模組 0、1、製作 SA 作品集範本」取消。
 - [ ] 【中】做成 PWA（2026-11-05 使用者提出）：參考 Family（`frontend/public/` 的 manifest、圖示、`sw.js`）加 manifest、192／512 與 apple-touch 圖示、`display: standalone`；service worker 改做課程頁離線快取（Family 的只做推播）；CSP 加 `manifest-src`、`worker-src` 為 `'self'`；手機實測安裝與離線閱讀，零月費。預估 1～2 小時，分支 `feature/<YYYYMMDD>-pwa`。
 - [ ] 【中】決定是否接 Harbor 的維護模式腳本（影響 CSP）。
 - [ ] 【中】已在 Harbor 登錄（2026-11-04，slug `road-to-solution-architect`）；補網址與健康檢查、加入「學習」群組；在 Learning Atlas 加入本課程的路線。
