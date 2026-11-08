@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/build-sw.ts dist",
     "build:fixture": "node scripts/build-fixture.ts",
     "preview": "astro preview",
     "typecheck": "astro check",

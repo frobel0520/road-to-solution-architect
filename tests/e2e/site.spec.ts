@@ -132,3 +132,28 @@ test.describe("其他頁面", () => {
 		expect(await page.evaluate(() => navigator.clipboard.readText())).toContain("| 技術 | 用途 | 何時選 | 代價 |");
 	});
 });
+
+test.describe("PWA", () => {
+	test("manifest 與圖示都讀得到", async ({ request }) => {
+		const manifest = await (await request.get("/manifest.webmanifest")).json();
+		expect(manifest).toMatchObject({ name: "SWE Trial", start_url: "/", display: "standalone" });
+		for (const icon of manifest.icons as { src: string }[]) {
+			expect((await request.get(icon.src)).status()).toBe(200);
+		}
+	});
+
+	test("service worker 安裝後，離線也能打開預先快取的單元頁", async ({ page, context, browserName }) => {
+		test.skip(browserName !== "chromium");
+		await page.goto("/");
+		await page.evaluate(async () => {
+			await navigator.serviceWorker.ready;
+		});
+		await context.setOffline(true);
+		try {
+			await page.goto(UNIT);
+			await expect(page.locator("h1")).toHaveText("從輸入網址到看到畫面：全課地圖");
+		} finally {
+			await context.setOffline(false);
+		}
+	});
+});

@@ -162,6 +162,7 @@ wrangler.toml              只有靜態檔的 Worker
   - CSP 以 `default-src 'self'` 為原則，`frame-ancestors 'none'`、`object-src 'none'`。
   - `X-Content-Type-Options: nosniff`、`X-Frame-Options: DENY`、`Referrer-Policy`、`Permissions-Policy`。
   - HTML 設 `Cache-Control: no-cache`；檔名含 hash 的靜態檔可以長期快取。
+  - PWA 需要的 `manifest-src`、`worker-src` 只允許本站（第 12 節）。
 - 是否接 Harbor 的維護模式腳本，在里程碑 2 決定；接的話 CSP 要加入 Harbor 的來源。目前沒有接，CSP 只允許本站。
 - Astro 預設會把小的腳本與樣式內嵌，`astro.config.mjs` 已設定一律輸出成外部檔案，CSP 不需要 `'unsafe-inline'`。
 - 依賴稽核：CI 遇到 high／critical 漏洞時失敗；稽核本身失敗算未完成。
@@ -245,3 +246,18 @@ wrangler.toml              只有靜態檔的 Worker
 - 依部署手冊 2.1：session 用 `__Host-` cookie，網頁與 API 同源、不開 CORS，改資料的請求檢查 `Origin`。
 - D1 存進度，格式沿用第 5.1 節；第一次登入時把瀏覽器進度逐單元合併上傳。
 - 開工前補 `docs/02-system-analysis.md`、`docs/04-release-gate.md`，本文件補完整設計，並更新專案級別。
+
+## 12. PWA 與離線閱讀
+
+2026-11-05 使用者提出，2026-11-08 實作。網站可以加到手機主畫面，並在離線時閱讀已下載的頁面。
+
+- `public/manifest.webmanifest`：名稱 SWE Trial、`display: standalone`、192／512 圖示與 maskable 圖示；`apple-touch-icon.png` 給 iOS。圖示由 `favicon.svg` 轉出。
+- Service worker：`npm run build` 在 `astro build` 後執行 `scripts/build-sw.ts`，掃描 `dist/` 產生 `dist/sw.js`。
+  - 預先快取：所有頁面、`/_astro/` 資源、圖示與 manifest（不含 `_headers`、`404.html`）。
+  - 版本：由上述檔案內容算出的 hash；內容沒變，版本就不變。新版啟用後刪除舊版快取。
+  - 頁面先連網路、失敗才用快取，內容更新後馬上看得到；`/_astro/` 檔名含 hash，直接用快取。
+  - 離線打開沒有快取的頁面時，回首頁。
+- CSP 加 `manifest-src 'self'`、`worker-src 'self'`；註冊腳本是外部檔案（`src/scripts/pwa.ts`），不需要 `'unsafe-inline'`。
+- 進度仍存在 localStorage，和 service worker 無關。
+- 零月費：只多了靜態檔，不用任何付費服務。
+- 驗證：E2E 檢查 manifest 與圖示、service worker 安裝後離線開單元頁；手機實機安裝與離線閱讀要另外驗證。
