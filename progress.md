@@ -17,7 +17,9 @@
 - 里程碑 3（新模組 0、1 樣板）：7／7 個單元與模組 1 速查表寫完，全部 `status: draft`，等 Owner 審閱風格與難度。
   - 內容：m00-u01～u02、m01-u01～u05（IP／port、TCP／UDP、DNS、HTTP／HTTPS、CDN／反向代理／負載平衡），每個單元 1～2 題決策題、1 張 SVG；`content/templates/network-cheatsheet.md`。
   - 驗證：內容驗證 7／30，錯誤 0、警告 0；`npm run check` 通過；E2E 30 個通過；本機 375 px 寬的 12 頁沒有水平捲動與 console 錯誤，決策題作答後顯示解析；7 張架構圖已在手機寬度目視檢查。
-  - 效能（本機）：見 `docs/evidence/perf-20261108-m00-m01-tech.md`。正式網址待部署後量測。
+  - PR #6 於 2026-11-08 合併並部署（main `5cd02b9`）。
+  - 效能（本機）：LCP p95 ≤ 1,359 ms、CLS 0、TBT 0，單元頁最大 10.4 KB（`docs/evidence/perf-20261108-m00-m01-tech.md`）。
+  - 效能（正式網址）：第 2 輪全部通過（首頁 LCP p95 2,066 ms），作答回饋 p95 ≤ 14.6 ms；第 1 輪首頁 p95 3,091 ms 未過，超標的是部署後第一次請求，列為已知限制（`docs/evidence/perf-20261108-production.md`）。
 - 寫作時注意：案例設定只用 `docs/curriculum.md` 第 4 節；SVG 寬 360、只用 d-* class；不寫產品或雲端服務名稱，除非附來源。
 
 ## 待辦
@@ -26,6 +28,7 @@
 - [ ] 【中】做成 PWA（2026-11-05 使用者提出）：參考 Family（`frontend/public/` 的 manifest、圖示、`sw.js`）加 manifest、192／512 與 apple-touch 圖示、`display: standalone`；service worker 改做課程頁離線快取（Family 的只做推播）；CSP 加 `manifest-src`、`worker-src` 為 `'self'`；手機實測安裝與離線閱讀，零月費。預估 1～2 小時，分支 `feature/<YYYYMMDD>-pwa`。
 - [ ] 【中】決定是否接 Harbor 的維護模式腳本（影響 CSP）。
 - [ ] 【中】在 Learning Atlas 加入本課程的路線。Harbor 已補網址、加入「學習」群組，首輪探測正常（2026-11-08）。
+- [ ] 【低】追蹤部署後第一次請求的首頁 LCP（2026-11-08 量到 3,091 ms，超過 2.5 秒）：下次部署後再量第 1 輪，確認是否每次都發生。
 - [ ] 【低】依賴稽核有 10 個 moderate（eslint 依賴的 minimatch），只在開發工具裡，等上游修正。
 - [ ] 【低】決定第二階段的開放對象（只有擁有者，或任何 Google 帳號）。
 
