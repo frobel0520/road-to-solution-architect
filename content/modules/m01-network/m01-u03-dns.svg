@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 400"><title>DNS 查詢：解析器一層層問到權威伺服器</title>
+<defs><marker id="m01u03-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-box d-accent" x="12" y="20" width="120" height="48" rx="6"/><text class="d-text" x="72" y="49" text-anchor="middle">瀏覽器</text>
+<path class="d-line" d="M72 70 V140" marker-end="url(#m01u03-arrow)"/>
+<text class="d-small" x="80" y="100">1 問網址</text>
+<path class="d-line" d="M56 140 V70" marker-end="url(#m01u03-arrow)"/>
+<text class="d-small" x="12" y="126">回覆 IP</text>
+<rect class="d-box" x="12" y="144" width="120" height="64" rx="6"/><text class="d-text" x="72" y="172" text-anchor="middle">遞迴解析器</text><text class="d-small" x="72" y="194" text-anchor="middle">快取（TTL 內）</text>
+<rect class="d-box" x="200" y="20" width="148" height="56" rx="6"/><text class="d-text" x="274" y="45" text-anchor="middle">根伺服器</text><text class="d-small" x="274" y="64" text-anchor="middle">.com 歸誰管？</text>
+<rect class="d-box" x="200" y="148" width="148" height="56" rx="6"/><text class="d-text" x="274" y="173" text-anchor="middle">.com 伺服器</text><text class="d-small" x="274" y="192" text-anchor="middle">example.com 歸誰管？</text>
+<rect class="d-box" x="200" y="276" width="148" height="72" rx="6"/><text class="d-text" x="274" y="300" text-anchor="middle">權威伺服器</text><text class="d-small" x="274" y="320" text-anchor="middle">shop.example.com</text><text class="d-small" x="274" y="338" text-anchor="middle">= 203.0.113.10</text>
+<path class="d-line" d="M134 160 L198 56" marker-end="url(#m01u03-arrow)"/>
+<text class="d-small" x="148" y="96">2</text>
+<path class="d-line" d="M134 176 H198" marker-end="url(#m01u03-arrow)"/>
+<text class="d-small" x="160" y="170">3</text>
+<path class="d-line" d="M134 196 L198 300" marker-end="url(#m01u03-arrow)"/>
+<text class="d-small" x="152" y="262">4</text>
+<text class="d-small" x="12" y="376">第一次查詢走完 1～4；TTL 內再查，</text>
+<text class="d-small" x="12" y="394">解析器直接從快取回答</text>
+</svg>

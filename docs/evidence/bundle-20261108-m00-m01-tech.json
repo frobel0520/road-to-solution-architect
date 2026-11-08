@@ -1,0 +1,137 @@
+{
+  "dist": "dist",
+  "limits": {
+    "totalBytes": 153600,
+    "jsBytes": 30720
+  },
+  "unitPages": [
+    {
+      "page": "/units/m01-u04/index.html",
+      "htmlBytes": 5565,
+      "cssBytes": 2064,
+      "jsBytes": 3036,
+      "totalBytes": 10665
+    },
+    {
+      "page": "/units/m01-u05/index.html",
+      "htmlBytes": 5203,
+      "cssBytes": 2064,
+      "jsBytes": 3036,
+      "totalBytes": 10303
+    },
+    {
+      "page": "/units/m01-u03/index.html",
+      "htmlBytes": 5063,
+      "cssBytes": 2064,
+      "jsBytes": 3036,
+      "totalBytes": 10163
+    },
+    {
+      "page": "/units/m01-u01/index.html",
+      "htmlBytes": 5062,
+      "cssBytes": 2064,
+      "jsBytes": 3036,
+      "totalBytes": 10162
+    },
+    {
+      "page": "/units/m00-u01/index.html",
+      "htmlBytes": 5027,
+      "cssBytes": 2064,
+      "jsBytes": 3036,
+      "totalBytes": 10127
+    },
+    {
+      "page": "/units/m01-u02/index.html",
+      "htmlBytes": 5000,
+      "cssBytes": 2064,
+      "jsBytes": 3036,
+      "totalBytes": 10100
+    },
+    {
+      "page": "/units/m00-u02/index.html",
+      "htmlBytes": 4773,
+      "cssBytes": 2064,
+      "jsBytes": 3036,
+      "totalBytes": 9873
+    }
+  ],
+  "otherPages": [
+    {
+      "page": "/index.html",
+      "htmlBytes": 1622,
+      "cssBytes": 2064,
+      "jsBytes": 2669,
+      "totalBytes": 6355
+    },
+    {
+      "page": "/modules/m01/index.html",
+      "htmlBytes": 1264,
+      "cssBytes": 2064,
+      "jsBytes": 2669,
+      "totalBytes": 5997
+    },
+    {
+      "page": "/modules/m02/index.html",
+      "htmlBytes": 1112,
+      "cssBytes": 2064,
+      "jsBytes": 2669,
+      "totalBytes": 5845
+    },
+    {
+      "page": "/modules/m03/index.html",
+      "htmlBytes": 1084,
+      "cssBytes": 2064,
+      "jsBytes": 2669,
+      "totalBytes": 5817
+    },
+    {
+      "page": "/modules/m00/index.html",
+      "htmlBytes": 1083,
+      "cssBytes": 2064,
+      "jsBytes": 2669,
+      "totalBytes": 5816
+    },
+    {
+      "page": "/modules/m04/index.html",
+      "htmlBytes": 1045,
+      "cssBytes": 2064,
+      "jsBytes": 2669,
+      "totalBytes": 5778
+    },
+    {
+      "page": "/modules/m05/index.html",
+      "htmlBytes": 1042,
+      "cssBytes": 2064,
+      "jsBytes": 2669,
+      "totalBytes": 5775
+    },
+    {
+      "page": "/modules/m06/index.html",
+      "htmlBytes": 1013,
+      "cssBytes": 2064,
+      "jsBytes": 2669,
+      "totalBytes": 5746
+    },
+    {
+      "page": "/templates/index.html",
+      "htmlBytes": 2276,
+      "cssBytes": 2064,
+      "jsBytes": 282,
+      "totalBytes": 4622
+    },
+    {
+      "page": "/case/index.html",
+      "htmlBytes": 1459,
+      "cssBytes": 2064,
+      "jsBytes": 0,
+      "totalBytes": 3523
+    },
+    {
+      "page": "/404.html",
+      "htmlBytes": 735,
+      "cssBytes": 2064,
+      "jsBytes": 0,
+      "totalBytes": 2799
+    }
+  ]
+}

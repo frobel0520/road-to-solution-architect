@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 400"><title>CDN、反向代理與負載平衡在請求路徑上的位置</title>
+<defs><marker id="m01u05-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-box d-accent" x="110" y="12" width="140" height="40" rx="6"/><text class="d-text" x="180" y="37" text-anchor="middle">顧客</text>
+<path class="d-line" d="M180 54 V82" marker-end="url(#m01u05-arrow)"/>
+<rect class="d-box" x="60" y="86" width="240" height="52" rx="6"/><text class="d-text" x="180" y="108" text-anchor="middle">CDN 節點（離顧客最近）</text><text class="d-small" x="180" y="127" text-anchor="middle">圖片、CSS、JS 直接回應</text>
+<path class="d-line" d="M180 140 V172" marker-end="url(#m01u05-arrow)"/>
+<text class="d-small" x="190" y="160">個人化請求才往下</text>
+<rect class="d-zone" x="12" y="176" width="336" height="212" rx="8"/>
+<text class="d-small" x="24" y="196">Example Retail 這一端</text>
+<rect class="d-box" x="60" y="206" width="240" height="52" rx="6"/><text class="d-text" x="180" y="228" text-anchor="middle">反向代理＋負載平衡</text><text class="d-small" x="180" y="247" text-anchor="middle">HTTPS、分流、健康檢查</text>
+<path class="d-line" d="M120 260 L72 308" marker-end="url(#m01u05-arrow)"/>
+<path class="d-line" d="M180 260 V308" marker-end="url(#m01u05-arrow)"/>
+<path class="d-line" d="M240 260 L288 300"/>
+<text class="d-small" x="274" y="290">×</text>
+<rect class="d-box" x="24" y="312" width="96" height="56" rx="6"/><text class="d-text" x="72" y="345" text-anchor="middle">伺服器 A</text>
+<rect class="d-box" x="132" y="312" width="96" height="56" rx="6"/><text class="d-text" x="180" y="345" text-anchor="middle">伺服器 B</text>
+<rect class="d-zone" x="240" y="312" width="96" height="56" rx="6"/><text class="d-text" x="288" y="338" text-anchor="middle">伺服器 C</text><text class="d-small" x="288" y="356" text-anchor="middle">健康檢查失敗</text>
+</svg>
