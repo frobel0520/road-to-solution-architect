@@ -6,9 +6,11 @@ import { parse as parseYaml } from "yaml";
 import { moduleSchema, templateSchema, unitSchema, type Unit } from "../../src/lib/content-schema.ts";
 import { allUnits, parseCurriculum, type CurriculumModule } from "../../src/lib/curriculum.ts";
 
-export const EXPECTED_MODULES = 14;
-export const EXPECTED_UNITS = 68;
-export const REQUIRED_SECTIONS = ["情境", "觀念", "架構圖", "取捨", "決策題", "交給 AI 時要注意", "重點回顧"] as const;
+export const EXPECTED_MODULES = 7;
+export const EXPECTED_UNITS = 30;
+export const REQUIRED_SECTIONS = ["情境", "觀念", "架構圖", "取捨", "決策題", "重點回顧"] as const;
+/** 選填段落：有寫的話放在「決策題」與「重點回顧」之間（curriculum.md 第 2 節）。 */
+export const OPTIONAL_AI_SECTION = "交給 AI 時要注意";
 export const OPTIONAL_LAST_SECTION = "延伸閱讀";
 
 /** 提到這些 AWS 服務（或「AWS／Amazon ＋服務名」）就必須附官方來源。單獨寫「AWS」指雲端平台本身，不算。 */
@@ -136,7 +138,7 @@ function checkUnitFile(dir: string, file: string, path: string, ctx: UnitContext
 	if (/^\s*(```|~~~)/m.test(body)) errors.push(`${path}：本文不放程式碼區塊（curriculum.md 第 3 節）`);
 	checkDiagrams(dir, path, body, errors);
 	if (byTitle.has("取捨") && !/^\s*\|.+\|\s*$/m.test(byTitle.get("取捨") ?? "")) errors.push(`${path}：「取捨」段落要用表格`);
-	checkListCount(path, "交給 AI 時要注意", byTitle, errors);
+	checkListCount(path, OPTIONAL_AI_SECTION, byTitle, errors);
 	checkListCount(path, "重點回顧", byTitle, errors);
 	if ((byTitle.get("決策題") ?? "").trim() !== "") errors.push(`${path}：「決策題」段落留空，題目寫在 frontmatter 的 quiz`);
 
@@ -150,15 +152,20 @@ function checkUnitFile(dir: string, file: string, path: string, ctx: UnitContext
 	}
 
 	const length = body.replace(/[#*>|`\-\s[\]()!]/g, "").length;
-	if (length < 1500 || length > 3500) warnings.push(`${path}：本文約 ${length} 字，建議 2,000～3,000 字`);
+	if (length < 1200 || length > 3000) warnings.push(`${path}：本文約 ${length} 字，建議 1,500～2,500 字`);
 	return unit;
 }
 
 function checkSectionOrder(path: string, titles: string[], errors: string[]): void {
-	const expected: string[] = [...REQUIRED_SECTIONS];
 	const actual = titles.at(-1) === OPTIONAL_LAST_SECTION ? titles.slice(0, -1) : titles;
+	const required: string[] = [...REQUIRED_SECTIONS];
+	const recapIndex = required.indexOf("重點回顧");
+	const expected = actual.includes(OPTIONAL_AI_SECTION)
+		? [...required.slice(0, recapIndex), OPTIONAL_AI_SECTION, ...required.slice(recapIndex)]
+		: required;
 	if (actual.join("|") !== expected.join("|")) {
-		errors.push(`${path}：段落應為 ${[...expected, `（${OPTIONAL_LAST_SECTION}）`].join("、")}，目前是 ${titles.join("、") || "（沒有段落）"}`);
+		const described = [...required.slice(0, recapIndex), `（${OPTIONAL_AI_SECTION}）`, ...required.slice(recapIndex), `（${OPTIONAL_LAST_SECTION}）`];
+		errors.push(`${path}：段落應為 ${described.join("、")}，目前是 ${titles.join("、") || "（沒有段落）"}`);
 	}
 }
 

@@ -1,7 +1,9 @@
 // 進度的 storage adapter。第一階段是 localStorage；第二階段新增同步 adapter，畫面程式不用改。
 import { createEmptyProgress, parse, type Progress } from "./model.ts";
 
-export const STORAGE_KEY = "rtsa-progress";
+export const STORAGE_KEY = "rtsa-progress-v2";
+/** CR-001 改版前的進度（原 SA 課程，id 已由新課綱重新使用），載入時刪除。 */
+export const LEGACY_KEYS = ["rtsa-progress"] as const;
 export const BACKUP_PREFIX = "rtsa-progress-backup-";
 const LAST_BACKUP_KEY = "rtsa-progress-last-backup";
 
@@ -31,6 +33,7 @@ export class ProgressStore {
 	load(): LoadState {
 		const storage = this.#storage;
 		if (!storage || !isWritable(storage)) return { status: "unavailable" };
+		removeLegacy(storage);
 		let raw: string | null;
 		try {
 			raw = storage.getItem(STORAGE_KEY);
@@ -76,6 +79,17 @@ export class ProgressStore {
 }
 
 const PROBE_KEY = "rtsa-storage-probe";
+
+/** 刪除失敗不影響新進度，所以吞掉錯誤；下次載入會再試。 */
+function removeLegacy(storage: KeyValueStorage): void {
+	for (const key of LEGACY_KEYS) {
+		try {
+			storage.removeItem(key);
+		} catch {
+			// 忽略：舊資料不會被讀取，只是暫時沒刪掉。
+		}
+	}
+}
 
 function isWritable(storage: KeyValueStorage): boolean {
 	try {

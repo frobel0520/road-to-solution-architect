@@ -44,10 +44,10 @@ export const sourceSchema = z.object({
 export const unitSchema = z
 	.object({
 		id: z.string().regex(UNIT_ID_PATTERN, "id 格式為 m00-u01"),
-		module: z.number().int().min(0).max(13),
+		module: z.number().int().min(0).max(6),
 		order: z.number().int().min(1),
 		title: nonEmpty,
-		minutes: z.number().int().min(10).max(15),
+		minutes: z.number().int().min(8).max(12),
 		objectives: z.array(nonEmpty).min(1).max(3),
 		quiz: z.array(quizSchema).min(1).max(3),
 		sources: z.array(sourceSchema).default([]),
@@ -66,7 +66,7 @@ export const unitSchema = z
 
 export const moduleSchema = z.object({
 	id: z.string().regex(MODULE_ID_PATTERN, "模組 id 格式為 m00"),
-	number: z.number().int().min(0).max(13),
+	number: z.number().int().min(0).max(6),
 	title: nonEmpty,
 	summary: nonEmpty,
 	portfolio: nonEmpty.optional(),
@@ -74,7 +74,7 @@ export const moduleSchema = z.object({
 
 export const templateSchema = z.object({
 	title: nonEmpty,
-	module: z.number().int().min(0).max(13),
+	module: z.number().int().min(0).max(6),
 	summary: nonEmpty,
 });
 

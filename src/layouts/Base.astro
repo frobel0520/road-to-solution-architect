@@ -7,8 +7,8 @@ interface Props {
 	current?: "home" | "case" | "templates";
 }
 
-const { title, description = "給工程師的 Solution Architect 自學課程。", current } = Astro.props;
-const siteName = "Road to Solution Architect";
+const { title, description = "軟體工程技術導覽：看懂常見技術是什麼、什麼時候用。", current } = Astro.props;
+const siteName = "SWE Trial";
 const pageTitle = title === siteName ? siteName : `${title}｜${siteName}`;
 ---
 
@@ -27,7 +27,7 @@ const pageTitle = title === siteName ? siteName : `${title}｜${siteName}`;
 			<nav aria-label="主選單">
 				<a class="site-name" href="/" aria-current={current === "home" ? "page" : undefined}>{siteName}</a>
 				<a href="/case/" aria-current={current === "case" ? "page" : undefined}>Example Retail</a>
-				<a href="/templates/" aria-current={current === "templates" ? "page" : undefined}>作品集範本</a>
+				<a href="/templates/" aria-current={current === "templates" ? "page" : undefined}>速查表</a>
 			</nav>
 		</header>
 		<div id="progress-banner" class="banner" role="status" hidden></div>

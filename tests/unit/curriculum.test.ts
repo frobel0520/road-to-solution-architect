@@ -5,22 +5,22 @@ import { allUnits, parseCurriculum } from "../../src/lib/curriculum.ts";
 describe("parseCurriculum", () => {
 	const modules = parseCurriculum(readFileSync("docs/curriculum.md", "utf8"));
 
-	it("讀出 14 個模組、68 個單元，id 不重複", () => {
+	it("讀出 7 個模組、30 個單元，id 不重複", () => {
 		const units = allUnits(modules);
-		expect(modules).toHaveLength(14);
-		expect(units).toHaveLength(68);
-		expect(new Set(units.map((unit) => unit.id)).size).toBe(68);
+		expect(modules).toHaveLength(7);
+		expect(units).toHaveLength(30);
+		expect(new Set(units.map((unit) => unit.id)).size).toBe(30);
 	});
 
 	it("讀出模組標題、作品集產出與單元", () => {
-		expect(modules[0]).toMatchObject({ number: 0, id: "m00", title: "SA 導論", portfolio: "能力自評表" });
-		expect(modules[3]?.portfolio).toBeNull();
+		expect(modules[0]).toMatchObject({ number: 0, id: "m00", title: "導論", portfolio: null });
+		expect(modules[1]?.portfolio).toBe("網路基礎技術選擇速查表");
 		expect(modules[1]?.units[0]).toEqual({
 			id: "m01-u01",
 			module: 1,
 			order: 1,
-			title: "利害關係人與訪談：找出真正的問題",
-			objective: "辨識利害關係人與目標，用訪談把「想要的功能」還原成要解決的問題",
+			title: "IP、port 與封包：電腦怎麼找到彼此",
+			objective: "說明 IP 位址、port 與封包各自的角色",
 		});
 	});
 

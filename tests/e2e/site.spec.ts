@@ -48,7 +48,7 @@ test.describe("單元頁", () => {
 		await expect(page.locator("[data-progress-summary]")).toHaveText("已完成 1／2 個已上線單元");
 
 		await page.goto("/");
-		await expect(page.locator("#resume-link")).toHaveText("Solution Architect 在做什麼");
+		await expect(page.locator("#resume-link")).toHaveText("從輸入網址到看到畫面：全課地圖");
 		await expect(page.locator("#resume-link")).toHaveAttribute("href", UNIT);
 	});
 
@@ -88,24 +88,24 @@ test.describe("單元頁", () => {
 
 	test("進度資料損壞時先備份、提示，確認後才重新開始", async ({ page }) => {
 		await page.goto("/");
-		await page.evaluate(() => localStorage.setItem("rtsa-progress", "{broken"));
+		await page.evaluate(() => localStorage.setItem("rtsa-progress-v2", "{broken"));
 		await page.goto(UNIT);
 		const banner = page.locator("#progress-banner");
 		await expect(banner).toContainText("無法讀取");
-		expect(await page.evaluate(() => localStorage.getItem("rtsa-progress"))).toBe("{broken");
+		expect(await page.evaluate(() => localStorage.getItem("rtsa-progress-v2"))).toBe("{broken");
 
 		await banner.getByRole("button", { name: "清除並重新開始記錄" }).click();
 		await expect(banner).toBeHidden();
 		const stored = await page.evaluate(() => Object.keys(localStorage));
 		expect(stored.some((key) => key.startsWith("rtsa-progress-backup-"))).toBe(true);
-		expect(await page.evaluate(() => JSON.parse(localStorage.getItem("rtsa-progress") ?? "{}").lastVisitedUnitId)).toBe("m00-u01");
+		expect(await page.evaluate(() => JSON.parse(localStorage.getItem("rtsa-progress-v2") ?? "{}").lastVisitedUnitId)).toBe("m00-u01");
 	});
 
 	test("被竄改的 lastVisitedUnitId 不會變成連結", async ({ page }) => {
 		await page.goto("/");
 		await page.evaluate(() =>
 			localStorage.setItem(
-				"rtsa-progress",
+				"rtsa-progress-v2",
 				JSON.stringify({ schemaVersion: 1, units: {}, lastVisitedUnitId: "m99-u99", updatedAt: "2026-11-04T10:00:00.000Z" }),
 			),
 		);
@@ -116,19 +116,19 @@ test.describe("單元頁", () => {
 
 test.describe("其他頁面", () => {
 	test("尚未上線的單元顯示「尚未上線」，沒有連結", async ({ page }) => {
-		await page.goto("/modules/m00/");
+		await page.goto("/modules/m01/");
 		const pending = page.locator(".unit-row.unpublished");
-		await expect(pending).toHaveCount(1);
-		await expect(pending).toContainText("尚未上線");
+		await expect(pending).toHaveCount(4);
+		await expect(pending.first()).toContainText("尚未上線");
 		await expect(pending.locator("a")).toHaveCount(0);
 	});
 
-	test("作品集範本可以複製", async ({ page, context, browserName }) => {
+	test("速查表範本可以複製", async ({ page, context, browserName }) => {
 		test.skip(browserName !== "chromium");
 		await context.grantPermissions(["clipboard-read", "clipboard-write"]);
 		await page.goto("/templates/");
 		await page.getByRole("button", { name: "複製 Markdown" }).first().click();
 		await expect(page.locator("[data-copy-status]").first()).toHaveText("已複製");
-		expect(await page.evaluate(() => navigator.clipboard.readText())).toContain("| 能力 | 自評 |");
+		expect(await page.evaluate(() => navigator.clipboard.readText())).toContain("| 技術 | 用途 | 何時選 | 代價 |");
 	});
 });

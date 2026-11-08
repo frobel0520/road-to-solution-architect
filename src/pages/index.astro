@@ -8,11 +8,11 @@ const total = modules.reduce((sum, module) => sum + module.units.length, 0);
 const lookup = modules.flatMap((module) => module.units.filter((unit) => unit.entry));
 ---
 
-<Base title="Road to Solution Architect" current="home">
+<Base title="SWE Trial" current="home">
 	<section class="prose">
-		<h1>Road to Solution Architect</h1>
+		<h1>SWE Trial</h1>
 		<p>
-			給工程師的 Solution Architect 自學課程。程式交給 AI coding agent 撰寫，你負責需求、架構、交付規格與驗收。每個單元 10～15
+			軟體工程技術導覽：每項技術講清楚是什麼、解決什麼問題、什麼時候用。不寫程式，每個單元 8～12
 			分鐘，手機和電腦都能讀，整門課用同一家虛構企業 <a href="/case/">Example Retail</a> 當案例。
 		</p>
 		<p class="progress-summary" data-progress-summary={published.join(",")}>已上線 {published.length}／{total} 個單元</p>
@@ -20,7 +20,7 @@ const lookup = modules.flatMap((module) => module.units.filter((unit) => unit.en
 	</section>
 
 	<h2>學習路線</h2>
-	<p class="muted">建議依序讀模組 0 → 1 → 2 → 3，之後可以依興趣跳讀；模組 12 留到最後。</p>
+	<p class="muted">建議依序讀模組 0 → 1 → 2 → 3（Web 與網路基礎），再讀 4 → 5 → 6（資料與後端）。</p>
 	<ol class="card-list grid">
 		{
 			modules.map((module) => (
@@ -32,7 +32,7 @@ const lookup = modules.flatMap((module) => module.units.filter((unit) => unit.en
 					</h3>
 					<p class="card-meta">
 						<span>{module.units.length} 個單元</span>
-						{module.portfolio && <span>作品集產出：{module.portfolio}</span>}
+						{module.portfolio && <span>產出：{module.portfolio}</span>}
 					</p>
 					<p class="card-meta">
 						{module.publishedIds.length > 0 ? (

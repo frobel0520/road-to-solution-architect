@@ -5,7 +5,7 @@ import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { checkContent, checkSvg } from "../../scripts/lib/content-checks.ts";
 
 const curriculumMarkdown = readFileSync("docs/curriculum.md", "utf8");
-const UNIT = "modules/m00-sa-intro/m00-u01.md";
+const UNIT = "modules/m00-intro/m00-u01.md";
 let dir = "";
 
 beforeEach(() => {
@@ -35,7 +35,7 @@ describe("checkContent", () => {
 	it("測試用內容通過驗證，並回報已上線的單元數", () => {
 		const report = run();
 		expect(report.errors).toEqual([]);
-		expect(report.curriculumUnits).toBe(68);
+		expect(report.curriculumUnits).toBe(30);
 		expect(report.units.map((unit) => unit.id)).toEqual(["m00-u01", "m00-u02", "m01-u01"]);
 	});
 
@@ -45,7 +45,7 @@ describe("checkContent", () => {
 		["選項缺解析", (t: string) => t.replace("explanation: 丙的測試解析。", "explanation: ''"), "explanation"],
 		["只有兩個選項", (t: string) => t.replace(/\n {6}- \{ id: c, text: 測試選項丙.*\n/, "\n"), "options"],
 		["id 格式錯誤", (t: string) => t.replace("id: m00-u01", "id: m0-u1"), "id 格式"],
-		["標題和課綱不同", (t: string) => t.replace("title: Solution Architect 在做什麼", "title: 別的標題"), "和課綱"],
+		["標題和課綱不同", (t: string) => t.replace("title: 從輸入網址到看到畫面：全課地圖", "title: 別的標題"), "和課綱"],
 		["閱讀時間超出範圍", (t: string) => t.replace("minutes: 10", "minutes: 30"), "minutes"],
 		["status 不合法", (t: string) => t.replace("status: draft", "status: done"), "status"],
 		["段落順序錯誤", (t: string) => t.replace("## 情境", "## 暫存").replace("## 觀念", "## 情境").replace("## 暫存", "## 觀念"), "段落應為"],
@@ -80,13 +80,30 @@ describe("checkContent", () => {
 	});
 
 	it("單元 id 重複", () => {
-		cpSync(join(dir, UNIT), join(dir, "modules/m01-requirements/m00-u01.md"));
-		cpSync(join(dir, "modules/m00-sa-intro/m00-u01-fixture.svg"), join(dir, "modules/m01-requirements/m00-u01-fixture.svg"));
+		cpSync(join(dir, UNIT), join(dir, "modules/m01-network/m00-u01.md"));
+		cpSync(join(dir, "modules/m00-intro/m00-u01-fixture.svg"), join(dir, "modules/m01-network/m00-u01-fixture.svg"));
 		expect(run().errors.join("\n")).toContain("重複");
 	});
 
+	it("沒有選填的「交給 AI 時要注意」也通過", () => {
+		edit(UNIT, (t) => t.replace(/## 交給 AI 時要注意\n[\s\S]*?(?=## 重點回顧)/, ""));
+		expect(run().errors).toEqual([]);
+	});
+
+	it("「交給 AI 時要注意」放錯位置 → 錯誤", () => {
+		const moved = (t: string) => {
+			const section = /## 交給 AI 時要注意\n[\s\S]*?(?=## 重點回顧)/.exec(t)?.[0] ?? "";
+			return t.replace(section, "").replace("## 取捨", `${section}## 取捨`);
+		};
+		expect(errorsAfter(moved)).toContain("段落應為");
+	});
+
+	it("「交給 AI 時要注意」不到 3 點 → 錯誤", () => {
+		expect(errorsAfter((t) => t.replace("- 測試要點三\n", ""))).toContain("3～5 點");
+	});
+
 	it("module.yaml 和課綱不一致", () => {
-		expect(errorsAfter((t) => t.replace("portfolio: 能力自評表", "portfolio: 別的產出"), "modules/m00-sa-intro/module.yaml")).toContain("作品集產出");
+		expect(errorsAfter((t) => t.replace("portfolio: 網路基礎技術選擇速查表", "portfolio: 別的產出"), "modules/m01-network/module.yaml")).toContain("作品集產出");
 	});
 });
 

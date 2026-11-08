@@ -1,4 +1,4 @@
-# Road to Solution Architect 系統設計（精簡版）
+# SWE Trial 系統設計（精簡版）
 
 | 文件項目 | 內容 |
 |---|---|
@@ -38,11 +38,11 @@ GitHub repo（main）
 content/
   modules/
     m00-sa-intro/
-      module.yaml          模組 id、標題、說明、作品集產出（標題與產出要和課綱一致）
+      module.yaml          模組 id、標題、說明、速查表名稱（標題與產出要和課綱一致）
       m00-u01.md           單元：frontmatter＋本文
       m00-u01-roles.svg    單元用的架構圖
   case.md                  Example Retail 介紹頁
-  templates/               作品集範本與範例（frontmatter：title、module、summary）
+  templates/               技術選擇速查表範本與範例（frontmatter：title、module、summary）
 src/
   content.config.ts        內容集合，schema 來自 src/lib/content-schema.ts
   lib/                     內容 schema、課綱解析、單元 HTML 後處理（純函式）
@@ -74,13 +74,13 @@ wrangler.toml              只有靜態檔的 Worker
 | 欄位 | 型別 | 必填 | 說明 |
 |---|---|---|---|
 | `id` | string，格式 `m00-u01` | 是 | 全站唯一，進度以此為 key；上線後不可變更，刪除的 id 不重複使用 |
-| `module` | number（0～13） | 是 | |
+| `module` | number（0～6） | 是 | |
 | `order` | number | 是 | 模組內的順序 |
 | `title` | string | 是 | |
-| `minutes` | number（10～15） | 是 | 預估閱讀時間 |
+| `minutes` | number（8～12） | 是 | 預估閱讀時間 |
 | `objectives` | string[]（1～3 條） | 是 | 學習目標，對應 `curriculum.md` 第 5 節 |
 | `quiz` | Quiz[]（1～3 題） | 是 | 見 4.2 |
-| `sources` | `{ title, url, checkedOn }[]` | 有提到 AWS 服務時必填 | `checkedOn` 為 `YYYY-MM-DD` |
+| `sources` | `{ title, url, checkedOn }[]` | 有提到特定產品或雲端服務時必填 | `checkedOn` 為 `YYYY-MM-DD` |
 | `status` | `draft` 或 `reviewed` | 是 | 使用者審閱後才改為 `reviewed`；`draft` 單元在網站上標示「內容待審閱」 |
 
 ### 4.2 決策題
@@ -103,7 +103,7 @@ wrangler.toml              只有靜態檔的 Worker
 
 ### 5.1 資料格式
 
-存在 localStorage，key 為 `rtsa-progress`：
+存在 localStorage，key 為 `rtsa-progress-v2`（CR-001 改版前的 `rtsa-progress` 在載入時刪除，因為 `m00`、`m01` 的 id 已由新課綱重新使用）：
 
 ```json
 {
@@ -184,7 +184,7 @@ wrangler.toml              只有靜態檔的 Worker
 | 類型 | 內容 |
 |---|---|
 | 單元測試 | 進度模組的純函式：格式錯誤、版本升級、合併、時間邊界 |
-| 內容驗證（CI） | frontmatter 必填欄位與型別；id 唯一且格式正確；每題剛好一個正確選項且每個選項都有解析；課綱是 14 個模組、68 個單元，每個單元 id 與標題都對得上課綱（分批上線，未上線的單元只列入統計）；段落齊全且順序正確；提到 AWS 服務的單元有 `sources`、查證日期與「延伸閱讀」 |
+| 內容驗證（CI） | frontmatter 必填欄位與型別；id 唯一且格式正確；每題剛好一個正確選項且每個選項都有解析；課綱是 7 個模組、30 個單元，每個單元 id 與標題都對得上課綱（分批上線，未上線的單元只列入統計）；段落齊全且順序正確（「交給 AI 時要注意」選填，有寫時放在決策題與重點回顧之間）；提到 AWS 服務的單元有 `sources`、查證日期與「延伸閱讀」 |
 | E2E（Playwright） | 完成單元後重新整理，進度仍在；作答後顯示解析；localStorage 無法使用時顯示提示；資料損壞時先備份再提示；手機（390×844）與桌機（1440×900）沒有水平捲動；每頁沒有 CSP 違規或 console 錯誤 |
 | 內容正確性 | 使用者審閱，`status` 改為 `reviewed`；和結構驗證分開記錄 |
 
