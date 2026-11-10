@@ -11,7 +11,7 @@
     "build:fixture": "node scripts/build-fixture.ts",
     "preview": "astro preview",
     "typecheck": "astro check",
-    "lint": "eslint .",
+    "lint": "oxlint",
     "test": "vitest run",
     "validate:content": "node scripts/validate-content.ts",
     "audit": "npm audit --audit-level=high",
@@ -24,12 +24,10 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.12",
-    "@eslint/js": "10.0.1",
     "@playwright/test": "1.64.1",
     "@types/node": "22.19.1",
-    "eslint": "10.13.0",
+    "oxlint": "1.76.0",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.72.0",
     "vitest": "4.1.12",
     "yaml": "2.9.1"
   }
