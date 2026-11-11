@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 430"><title>Polling、Webhook、SSE、WebSocket：誰主動送出訊息</title>
+<defs><marker id="m03u04-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<text class="d-title" x="12" y="24">Polling</text><text class="d-small" x="348" y="24" text-anchor="end">定時問，多半得到「沒有」</text>
+<rect class="d-box d-accent" x="12" y="34" width="96" height="56" rx="6"/><text class="d-text" x="60" y="67" text-anchor="middle">用戶端</text>
+<rect class="d-box" x="252" y="34" width="96" height="56" rx="6"/><text class="d-text" x="300" y="67" text-anchor="middle">伺服器</text>
+<path class="d-line" d="M110 46 H248" marker-end="url(#m03u04-arrow)"/><text class="d-small" x="180" y="42" text-anchor="middle">有新的嗎？</text>
+<path class="d-line" d="M110 62 H248" marker-end="url(#m03u04-arrow)"/>
+<path class="d-line" d="M110 78 H248" marker-end="url(#m03u04-arrow)"/>
+<text class="d-title" x="12" y="128">Webhook</text><text class="d-small" x="348" y="128" text-anchor="end">事情發生時，對方呼叫你</text>
+<rect class="d-box d-accent" x="12" y="138" width="96" height="56" rx="6"/><text class="d-text" x="60" y="162" text-anchor="middle">你的伺服器</text><text class="d-small" x="60" y="182" text-anchor="middle">公開網址</text>
+<rect class="d-box" x="252" y="138" width="96" height="56" rx="6"/><text class="d-text" x="300" y="162" text-anchor="middle">對方伺服器</text><text class="d-small" x="300" y="182" text-anchor="middle">物流商</text>
+<path class="d-line" d="M248 166 H112" marker-end="url(#m03u04-arrow)"/><text class="d-small" x="180" y="158" text-anchor="middle">包裹已送達</text>
+<text class="d-title" x="12" y="232">SSE</text><text class="d-small" x="348" y="232" text-anchor="end">連線不關，伺服器單向推送</text>
+<rect class="d-box d-accent" x="12" y="242" width="96" height="56" rx="6"/><text class="d-text" x="60" y="275" text-anchor="middle">瀏覽器</text>
+<rect class="d-box" x="252" y="242" width="96" height="56" rx="6"/><text class="d-text" x="300" y="275" text-anchor="middle">伺服器</text>
+<path class="d-line" d="M110 254 H248" marker-end="url(#m03u04-arrow)"/><text class="d-small" x="180" y="250" text-anchor="middle">開啟連線</text>
+<path class="d-line" d="M248 272 H112" marker-end="url(#m03u04-arrow)"/>
+<path class="d-line" d="M248 288 H112" marker-end="url(#m03u04-arrow)"/><text class="d-small" x="180" y="310" text-anchor="middle">剩 12 件、剩 11 件…</text>
+<text class="d-title" x="12" y="346">WebSocket</text><text class="d-small" x="348" y="346" text-anchor="end">雙向長連線</text>
+<rect class="d-box d-accent" x="12" y="356" width="96" height="56" rx="6"/><text class="d-text" x="60" y="389" text-anchor="middle">瀏覽器</text>
+<rect class="d-box" x="252" y="356" width="96" height="56" rx="6"/><text class="d-text" x="300" y="389" text-anchor="middle">伺服器</text>
+<path class="d-line" d="M112 384 H248" marker-start="url(#m03u04-arrow)" marker-end="url(#m03u04-arrow)"/><text class="d-small" x="180" y="376" text-anchor="middle">雙方隨時可送</text>
+</svg>

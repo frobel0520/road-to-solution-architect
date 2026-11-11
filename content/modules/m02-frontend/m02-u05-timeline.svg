@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420"><title>網頁載入的時間軸與各階段的改善方式</title>
+<defs><marker id="m02u05-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<text class="d-title" x="92" y="24" text-anchor="middle">瀏覽器在做什麼</text>
+<text class="d-title" x="268" y="24" text-anchor="middle">怎麼縮短</text>
+<path class="d-line" d="M20 40 V408" marker-end="url(#m02u05-arrow)"/>
+<text class="d-small" x="8" y="52">時</text>
+<text class="d-small" x="8" y="68">間</text>
+<rect class="d-box" x="32" y="40" width="140" height="52" rx="6"/><text class="d-text" x="102" y="62" text-anchor="middle">連線、等伺服器</text><text class="d-small" x="102" y="81" text-anchor="middle">回應 HTML</text>
+<text class="d-small" x="188" y="62">CDN、伺服器端快取</text>
+<rect class="d-box" x="32" y="104" width="140" height="52" rx="6"/><text class="d-text" x="102" y="126" text-anchor="middle">下載 CSS</text><text class="d-small" x="102" y="145" text-anchor="middle">等到了才開始畫</text>
+<text class="d-small" x="188" y="126">精簡 CSS、傳輸壓縮</text>
+<rect class="d-zone" x="32" y="168" width="140" height="36" rx="6"/><text class="d-text" x="102" y="191" text-anchor="middle">第一個畫面</text>
+<text class="d-small" x="188" y="184">重要內容寫在 HTML</text>
+<text class="d-small" x="188" y="200">替晚到的內容留空間</text>
+<rect class="d-box" x="32" y="216" width="140" height="52" rx="6"/><text class="d-text" x="102" y="238" text-anchor="middle">下載圖片</text><text class="d-small" x="102" y="257" text-anchor="middle">通常是最大的檔案</text>
+<text class="d-small" x="188" y="234">縮小、轉檔、延遲載入</text>
+<text class="d-small" x="188" y="250">瀏覽器快取</text>
+<rect class="d-box d-accent" x="32" y="280" width="140" height="36" rx="6"/><text class="d-text" x="102" y="303" text-anchor="middle">主要內容出現</text>
+<text class="d-small" x="188" y="303">← LCP 量到這裡</text>
+<rect class="d-box" x="32" y="328" width="140" height="52" rx="6"/><text class="d-text" x="102" y="350" text-anchor="middle">執行 JavaScript</text><text class="d-small" x="102" y="369" text-anchor="middle">手機上特別慢</text>
+<text class="d-small" x="188" y="346">只送用得到的、延後</text>
+<text class="d-small" x="188" y="362">檢查第三方程式</text>
+<text class="d-small" x="32" y="402">之後：按了多久有反應（INP）、畫面跳不跳（CLS）</text>
+</svg>

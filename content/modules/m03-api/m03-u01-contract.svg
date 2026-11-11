@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360"><title>多個系統透過會員 API 取得資料，看不到 API 後面的內部</title>
+<defs><marker id="m03u01-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-box" x="8" y="12" width="80" height="48" rx="6"/><text class="d-text" x="48" y="41" text-anchor="middle">購物網站</text>
+<rect class="d-box" x="96" y="12" width="80" height="48" rx="6"/><text class="d-text" x="136" y="41" text-anchor="middle">手機 App</text>
+<rect class="d-box" x="184" y="12" width="80" height="48" rx="6"/><text class="d-text" x="224" y="41" text-anchor="middle">門市收銀</text>
+<rect class="d-box" x="272" y="12" width="80" height="48" rx="6"/><text class="d-text" x="312" y="41" text-anchor="middle">物流商</text>
+<path class="d-line" d="M48 62 V116" marker-end="url(#m03u01-arrow)"/>
+<path class="d-line" d="M136 62 V116" marker-end="url(#m03u01-arrow)"/>
+<path class="d-line" d="M224 62 V116" marker-end="url(#m03u01-arrow)"/>
+<path class="d-line" d="M312 62 V116" marker-end="url(#m03u01-arrow)"/>
+<text class="d-small" x="180" y="94" text-anchor="middle">照合約要求</text>
+<rect class="d-box d-accent" x="8" y="120" width="344" height="56" rx="6"/><text class="d-text" x="180" y="144" text-anchor="middle">會員 API（合約）</text><text class="d-small" x="180" y="164" text-anchor="middle">能問什麼、要給什麼、會得到什麼</text>
+<path class="d-line" d="M180 178 V214" marker-end="url(#m03u01-arrow)"/>
+<rect class="d-zone" x="8" y="200" width="344" height="124" rx="8"/>
+<text class="d-small" x="20" y="220">會員系統內部</text>
+<rect class="d-box" x="40" y="232" width="120" height="48" rx="6"/><text class="d-text" x="100" y="261" text-anchor="middle">程式</text>
+<path class="d-line" d="M162 256 H196" marker-end="url(#m03u01-arrow)"/>
+<rect class="d-box" x="200" y="232" width="120" height="48" rx="6"/><text class="d-text" x="260" y="261" text-anchor="middle">資料庫</text>
+<text class="d-small" x="180" y="308" text-anchor="middle">外部看不到，可以自由調整</text>
+<text class="d-small" x="180" y="348" text-anchor="middle">合約不變，上面四個使用者就不用改</text>
+</svg>

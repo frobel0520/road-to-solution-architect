@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 430"><title>API 閘道的檢查、版本路由與後端的冪等鍵判斷</title>
+<defs><marker id="m03u05-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-box d-accent" x="60" y="10" width="160" height="40" rx="6"/><text class="d-text" x="140" y="35" text-anchor="middle">App、合作廠商</text>
+<path class="d-line" d="M140 52 V76" marker-end="url(#m03u05-arrow)"/>
+<rect class="d-zone" x="8" y="80" width="264" height="136" rx="8"/>
+<text class="d-small" x="20" y="100">API 閘道（入口）</text>
+<rect class="d-box" x="24" y="110" width="232" height="28" rx="4"/><text class="d-text" x="140" y="129" text-anchor="middle">1 身分驗證：你是誰</text>
+<rect class="d-box" x="24" y="144" width="232" height="28" rx="4"/><text class="d-text" x="140" y="163" text-anchor="middle">2 限流：這分鐘送了幾次</text>
+<rect class="d-box" x="24" y="178" width="232" height="28" rx="4"/><text class="d-text" x="140" y="197" text-anchor="middle">3 版本：/v1/ 還是 /v2/</text>
+<path class="d-line" d="M258 158 H284" marker-end="url(#m03u05-arrow)"/>
+<rect class="d-box" x="288" y="132" width="64" height="52" rx="6"/><text class="d-text" x="320" y="154" text-anchor="middle">429</text><text class="d-small" x="320" y="173" text-anchor="middle">超過額度</text>
+<path class="d-line" d="M90 218 V248" marker-end="url(#m03u05-arrow)"/>
+<path class="d-line" d="M190 218 V248" marker-end="url(#m03u05-arrow)"/>
+<rect class="d-box" x="40" y="252" width="100" height="44" rx="6"/><text class="d-text" x="90" y="272" text-anchor="middle">v1 後端</text><text class="d-small" x="90" y="289" text-anchor="middle">舊版，公告退場</text>
+<rect class="d-box" x="150" y="252" width="100" height="44" rx="6"/><text class="d-text" x="200" y="279" text-anchor="middle">v2 後端</text>
+<path class="d-line" d="M200 298 V322" marker-end="url(#m03u05-arrow)"/>
+<rect class="d-zone" x="8" y="326" width="344" height="96" rx="8"/>
+<text class="d-small" x="20" y="346">下單時：這個冪等鍵處理過了嗎？</text>
+<rect class="d-box" x="20" y="358" width="156" height="52" rx="6"/><text class="d-text" x="98" y="380" text-anchor="middle">沒有</text><text class="d-small" x="98" y="399" text-anchor="middle">建立訂單，記下結果</text>
+<rect class="d-box" x="184" y="358" width="156" height="52" rx="6"/><text class="d-text" x="262" y="380" text-anchor="middle">有</text><text class="d-small" x="262" y="399" text-anchor="middle">不重做，回傳上次結果</text>
+</svg>

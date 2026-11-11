@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 400"><title>靜態網站、SSR、SPA 的 HTML 各在什麼時候產生</title>
+<defs><marker id="m02u02-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<text class="d-small" x="64" y="20" text-anchor="middle">發布時</text>
+<text class="d-small" x="180" y="20" text-anchor="middle">顧客請求時</text>
+<text class="d-small" x="296" y="20" text-anchor="middle">瀏覽器收到後</text>
+<rect class="d-zone" x="8" y="30" width="344" height="108" rx="8"/>
+<text class="d-title" x="20" y="52">靜態網站</text>
+<rect class="d-box d-accent" x="16" y="64" width="96" height="56" rx="6"/><text class="d-text" x="64" y="88" text-anchor="middle">產生全部</text><text class="d-text" x="64" y="108" text-anchor="middle">HTML</text>
+<path class="d-line" d="M114 92 H128" marker-end="url(#m02u02-arrow)"/>
+<rect class="d-box" x="132" y="64" width="96" height="56" rx="6"/><text class="d-text" x="180" y="88" text-anchor="middle">直接送出</text><text class="d-small" x="180" y="108" text-anchor="middle">不用運算</text>
+<path class="d-line" d="M230 92 H244" marker-end="url(#m02u02-arrow)"/>
+<rect class="d-box" x="248" y="64" width="96" height="56" rx="6"/><text class="d-text" x="296" y="97" text-anchor="middle">馬上顯示</text>
+<rect class="d-zone" x="8" y="148" width="344" height="108" rx="8"/>
+<text class="d-title" x="20" y="170">SSR</text>
+<rect class="d-box d-accent" x="132" y="182" width="96" height="56" rx="6"/><text class="d-text" x="180" y="206" text-anchor="middle">查資料</text><text class="d-text" x="180" y="226" text-anchor="middle">組出 HTML</text>
+<path class="d-line" d="M230 210 H244" marker-end="url(#m02u02-arrow)"/>
+<rect class="d-box" x="248" y="182" width="96" height="56" rx="6"/><text class="d-text" x="296" y="215" text-anchor="middle">馬上顯示</text>
+<rect class="d-zone" x="8" y="266" width="344" height="126" rx="8"/>
+<text class="d-title" x="20" y="288">SPA</text>
+<rect class="d-box" x="132" y="300" width="96" height="56" rx="6"/><text class="d-text" x="180" y="324" text-anchor="middle">送出空殼</text><text class="d-small" x="180" y="344" text-anchor="middle">＋JavaScript</text>
+<path class="d-line" d="M230 328 H244" marker-end="url(#m02u02-arrow)"/>
+<rect class="d-box d-accent" x="248" y="300" width="96" height="56" rx="6"/><text class="d-text" x="296" y="324" text-anchor="middle">要資料</text><text class="d-text" x="296" y="344" text-anchor="middle">組出畫面</text>
+<text class="d-small" x="20" y="380">之後換畫面不用整頁重新載入</text>
+</svg>
