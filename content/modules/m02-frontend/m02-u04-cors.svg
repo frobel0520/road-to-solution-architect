@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 400"><title>同源請求與跨來源請求：瀏覽器在哪裡檢查 CORS</title>
+<defs><marker id="m02u04-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-zone" x="8" y="8" width="344" height="112" rx="8"/>
+<text class="d-title" x="20" y="30">同源</text><text class="d-small" x="340" y="30" text-anchor="end">回應直接交給網頁</text>
+<rect class="d-box d-accent" x="16" y="44" width="124" height="60" rx="6"/><text class="d-text" x="78" y="69" text-anchor="middle">網頁的程式</text><text class="d-small" x="78" y="90" text-anchor="middle">shop.example.com</text>
+<rect class="d-box" x="220" y="44" width="124" height="60" rx="6"/><text class="d-text" x="282" y="69" text-anchor="middle">網站伺服器</text><text class="d-small" x="282" y="90" text-anchor="middle">shop.example.com</text>
+<path class="d-line" d="M142 62 H216" marker-end="url(#m02u04-arrow)"/><text class="d-small" x="180" y="56" text-anchor="middle">請求</text>
+<path class="d-line" d="M216 88 H144" marker-end="url(#m02u04-arrow)"/><text class="d-small" x="180" y="104" text-anchor="middle">回應</text>
+<rect class="d-zone" x="8" y="130" width="344" height="262" rx="8"/>
+<text class="d-title" x="20" y="152">跨來源</text><text class="d-small" x="340" y="152" text-anchor="end">瀏覽器先檢查，再決定給不給</text>
+<rect class="d-box d-accent" x="16" y="166" width="124" height="60" rx="6"/><text class="d-text" x="78" y="191" text-anchor="middle">網頁的程式</text><text class="d-small" x="78" y="212" text-anchor="middle">shop.example.com</text>
+<rect class="d-box" x="220" y="166" width="124" height="76" rx="6"/><text class="d-text" x="282" y="188" text-anchor="middle">API 伺服器</text><text class="d-small" x="282" y="208" text-anchor="middle">api.example.com</text><text class="d-small" x="282" y="228" text-anchor="middle">回應附上允許的來源</text>
+<path class="d-line" d="M142 190 H216" marker-end="url(#m02u04-arrow)"/><text class="d-small" x="180" y="184" text-anchor="middle">請求</text>
+<path class="d-line" d="M300 244 V304 H264" marker-end="url(#m02u04-arrow)"/><text class="d-small" x="294" y="272" text-anchor="end">回應</text>
+<rect class="d-box" x="100" y="276" width="160" height="56" rx="6"/><text class="d-text" x="180" y="299" text-anchor="middle">瀏覽器檢查</text><text class="d-small" x="180" y="319" text-anchor="middle">允許的來源有我嗎？</text>
+<path class="d-line" d="M98 304 H60 V230" marker-end="url(#m02u04-arrow)"/><text class="d-small" x="68" y="256">有：交給網頁</text>
+<path class="d-line" d="M180 334 V356" marker-end="url(#m02u04-arrow)"/>
+<text class="d-small" x="180" y="378" text-anchor="middle">沒有：丟掉回應，顯示 CORS 錯誤</text>
+</svg>

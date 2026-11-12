@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 400"><title>REST 請求與回應的組成，以及同一個資源搭配不同方法</title>
+<defs><marker id="m03u02-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-box d-accent" x="8" y="56" width="64" height="72" rx="6"/><text class="d-text" x="40" y="97" text-anchor="middle">App</text>
+<rect class="d-box" x="288" y="56" width="64" height="72" rx="6"/><text class="d-text" x="320" y="88" text-anchor="middle">訂單</text><text class="d-text" x="320" y="108" text-anchor="middle">API</text>
+<rect class="d-zone" x="84" y="12" width="192" height="68" rx="6"/>
+<text class="d-small" x="94" y="32">請求</text>
+<text class="d-text" x="180" y="48" text-anchor="middle">POST /orders</text>
+<text class="d-small" x="180" y="68" text-anchor="middle">本文（JSON）：品項、數量</text>
+<path class="d-line" d="M74 84 H284" marker-end="url(#m03u02-arrow)"/>
+<path class="d-line" d="M284 104 H76" marker-end="url(#m03u02-arrow)"/>
+<rect class="d-zone" x="84" y="108" width="192" height="68" rx="6"/>
+<text class="d-small" x="94" y="128">回應</text>
+<text class="d-text" x="180" y="144" text-anchor="middle">201 已建立</text>
+<text class="d-small" x="180" y="164" text-anchor="middle">本文（JSON）：訂單 1001</text>
+<text class="d-title" x="180" y="212" text-anchor="middle">同一個資源，不同的方法</text>
+<rect class="d-box" x="8" y="226" width="344" height="44" rx="6"/><text class="d-text" x="20" y="253">GET /orders/1001</text><text class="d-small" x="340" y="253" text-anchor="end">查這筆訂單</text>
+<rect class="d-box" x="8" y="278" width="344" height="44" rx="6"/><text class="d-text" x="20" y="305">PATCH /orders/1001</text><text class="d-small" x="340" y="305" text-anchor="end">改收件地址</text>
+<rect class="d-box" x="8" y="330" width="344" height="44" rx="6"/><text class="d-text" x="20" y="357">DELETE /orders/1001</text><text class="d-small" x="340" y="357" text-anchor="end">刪除這筆訂單</text>
+<text class="d-small" x="180" y="392" text-anchor="middle">網址是名詞，方法是動詞，狀態碼是結果</text>
+</svg>

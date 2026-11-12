@@ -1,6 +1,6 @@
 # 進度
 
-## 目前狀態（2026-11-08）
+## 目前狀態（2026-11-11）
 
 - 里程碑 1（文件）：完成。ADR-001～004 全部定案（ADR-002、ADR-004 於 2026-11-04 由使用者確認）。
 - 里程碑 2（網站骨架）：完成，PR #1 於 2026-11-05 合併。
@@ -20,12 +20,18 @@
   - PR #6 於 2026-11-08 合併並部署（main `5cd02b9`）。
   - 效能（本機）：LCP p95 ≤ 1,359 ms、CLS 0、TBT 0，單元頁最大 10.4 KB（`docs/evidence/perf-20261108-m00-m01-tech.md`）。
   - 效能（正式網址）：第 2 輪全部通過（首頁 LCP p95 2,066 ms），作答回饋 p95 ≤ 14.6 ms；第 1 輪首頁 p95 3,091 ms 未過，超標的是部署後第一次請求，列為已知限制（`docs/evidence/perf-20261108-production.md`）。
+- 里程碑 4（模組 2、3，批次 2）：10 個單元（m02-u01～u05、m03-u01～u05）與兩頁速查表在 2026-11-11 寫完，全部 `status: draft`，在分支 `feature/20261111-m02-m03-content`，尚未合併、尚未部署。
+  - 驗證：`npm run check` 通過（內容驗證 17／30，錯誤 0、警告 0）；E2E 34 個通過；10 個新單元頁在 375 px 寬沒有水平捲動，10 張架構圖已目視檢查。
+  - 來源：m02-u05（web.dev）與 m03-u03（graphql.org、grpc.io）已對照官方文件，查證日期記在單元的 `sources`。
+  - 待驗收：Lighthouse 效能（本機與正式網址）還沒量，合併部署後再量。
 - PWA（2026-11-08）：manifest、192／512／maskable 與 apple-touch 圖示；`npm run build` 後產生 `dist/sw.js`，預先快取全部頁面與資源，頁面先連網路、失敗才用快取。驗證：88 個單元測試、E2E 34 個通過（含離線開單元頁）；本機預覽確認 service worker 啟用、CSP 含 `worker-src`。
 - 寫作時注意：案例設定只用 `docs/curriculum.md` 第 4 節；SVG 寬 360、只用 d-* class；不寫產品或雲端服務名稱，除非附來源。
 
 ## 待辦
 
-- [ ] 【高】寫模組 2（前端與瀏覽器）、3（API 與系統溝通）與兩頁速查表（`docs/curriculum.md` 第 7 節批次 2），格式沿用模組 0、1。2026-11-08 Owner 看過模組 0、1 的標題，同意先繼續寫；7 個單元仍是 draft，內容等 Owner 有空再細讀後改成 reviewed。
+- [ ] 【高】模組 2、3 的分支 `feature/20261111-m02-m03-content` 開 PR、合併、部署；部署後量正式網址效能並存到 `docs/evidence/`。
+- [ ] 【高】寫模組 4（後端基礎）、5（資料庫）與兩頁速查表（`docs/curriculum.md` 第 7 節批次 3），格式沿用模組 0～3。
+- [ ] 【中】Owner 細讀模組 0～3 的 17 個 draft 單元，確認後改成 `reviewed`。2026-11-08 Owner 看過模組 0、1 的標題，同意先繼續寫。
 - [ ] 【中】PWA 手機實機驗收：2026-11-08 已實作（manifest、圖示、service worker 預先快取全部頁面、CSP 加 `worker-src`，見 `docs/03` 第 12 節），E2E 驗過離線開單元頁；還要用手機實際「加到主畫面」並開飛航模式閱讀（Owner 有空時做，2026-11-08 記為待辦）。
 - [ ] 【中】決定是否接 Harbor 的維護模式腳本（影響 CSP）。
 - [ ] 【低】部署後第一次請求的首頁 LCP：PR #6 部署後量到 3,091 ms（超過 2.5 秒），PR #8 部署後第 1 輪 1,856 ms 沒有重現。之後部署時順手再量第 1 輪；再出現就查邊緣快取。
@@ -34,7 +40,8 @@
 
 ## 交接
 
-- 分支：只有 `main`。骨架與內容分支都已合併，下一個工作從 `main` 開新分支（`feature/<YYYYMMDD>-<slug>`）。
+- 分支：`feature/20261111-m02-m03-content`（模組 2、3 內容，尚未開 PR）。合併後下一個工作從 `main` 開新分支（`feature/<YYYYMMDD>-<slug>`）。
+- 雲端環境跑 E2E：內建的 Chromium 版本和專案的 Playwright 不同，要在設定加 `launchOptions.executablePath: "/opt/pw-browsers/chromium"`（用暫時的設定檔，不要提交）；先跑 `npm run build:fixture`。
 - 開發前先讀 `AGENTS.md`、`docs/01`、`docs/03`、`docs/curriculum.md`；開發指令見 README「開發」。
 - 證據位置：`docs/evidence/`。
 - 換裝置接手：`git fetch` 後讀這份 `progress.md`，再依「待辦」從 `main` 開分支繼續；不需要讀 Harbor。Harbor 上的交接文件只是備份，保存 7 天。

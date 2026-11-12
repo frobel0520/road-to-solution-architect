@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420"><title>REST、GraphQL、gRPC 三種做法的比較</title>
+<defs><marker id="m03u03-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-zone" x="8" y="8" width="344" height="136" rx="8"/>
+<text class="d-title" x="20" y="30">REST</text><text class="d-small" x="340" y="30" text-anchor="end">一個資源一個網址，請求三次</text>
+<rect class="d-box d-accent" x="20" y="64" width="64" height="48" rx="6"/><text class="d-text" x="52" y="93" text-anchor="middle">App</text>
+<path class="d-line" d="M86 76 L216 56" marker-end="url(#m03u03-arrow)"/>
+<path class="d-line" d="M86 88 H216" marker-end="url(#m03u03-arrow)"/>
+<path class="d-line" d="M86 100 L216 120" marker-end="url(#m03u03-arrow)"/>
+<rect class="d-box" x="220" y="42" width="120" height="26" rx="4"/><text class="d-small" x="280" y="60" text-anchor="middle">/members/12345</text>
+<rect class="d-box" x="220" y="75" width="120" height="26" rx="4"/><text class="d-small" x="280" y="93" text-anchor="middle">/orders</text>
+<rect class="d-box" x="220" y="108" width="120" height="26" rx="4"/><text class="d-small" x="280" y="126" text-anchor="middle">/products</text>
+<rect class="d-zone" x="8" y="152" width="344" height="124" rx="8"/>
+<text class="d-title" x="20" y="174">GraphQL</text><text class="d-small" x="340" y="174" text-anchor="end">寫明要的欄位，請求一次</text>
+<rect class="d-box d-accent" x="20" y="196" width="64" height="48" rx="6"/><text class="d-text" x="52" y="225" text-anchor="middle">App</text>
+<path class="d-line" d="M86 220 H216" marker-end="url(#m03u03-arrow)"/>
+<text class="d-small" x="150" y="204" text-anchor="middle">等級、點數、</text>
+<text class="d-small" x="150" y="240" text-anchor="middle">訂單狀態</text>
+<rect class="d-box" x="220" y="190" width="120" height="60" rx="6"/><text class="d-text" x="280" y="216" text-anchor="middle">/graphql</text><text class="d-small" x="280" y="236" text-anchor="middle">依 schema 組資料</text>
+<text class="d-small" x="20" y="266">回應的形狀和查詢一樣，不多也不少</text>
+<rect class="d-zone" x="8" y="284" width="344" height="128" rx="8"/>
+<text class="d-title" x="20" y="306">gRPC</text><text class="d-small" x="340" y="306" text-anchor="end">後端服務之間互相呼叫</text>
+<rect class="d-box" x="20" y="322" width="100" height="48" rx="6"/><text class="d-text" x="70" y="351" text-anchor="middle">訂單服務</text>
+<path class="d-line" d="M122 346 H236" marker-end="url(#m03u03-arrow)"/>
+<text class="d-small" x="180" y="338" text-anchor="middle">二進位資料</text>
+<rect class="d-box" x="240" y="322" width="100" height="48" rx="6"/><text class="d-text" x="290" y="351" text-anchor="middle">庫存服務</text>
+<text class="d-small" x="180" y="398" text-anchor="middle">兩邊的程式碼由同一份 .proto 定義產生</text>
+</svg>

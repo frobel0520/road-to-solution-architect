@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420"><title>瀏覽器把 HTML、CSS、JavaScript 變成畫面的步驟</title>
+<defs><marker id="m02u01-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-box" x="12" y="12" width="150" height="48" rx="6"/><text class="d-text" x="87" y="34" text-anchor="middle">HTML</text><text class="d-small" x="87" y="52" text-anchor="middle">頁面上有什麼</text>
+<rect class="d-box" x="198" y="12" width="150" height="48" rx="6"/><text class="d-text" x="273" y="34" text-anchor="middle">CSS</text><text class="d-small" x="273" y="52" text-anchor="middle">長什麼樣子</text>
+<path class="d-line" d="M87 62 V92" marker-end="url(#m02u01-arrow)"/>
+<path class="d-line" d="M273 62 V92" marker-end="url(#m02u01-arrow)"/>
+<rect class="d-box d-accent" x="12" y="96" width="150" height="48" rx="6"/><text class="d-text" x="87" y="118" text-anchor="middle">DOM</text><text class="d-small" x="87" y="136" text-anchor="middle">樹狀的文件結構</text>
+<rect class="d-box" x="198" y="96" width="150" height="48" rx="6"/><text class="d-text" x="273" y="125" text-anchor="middle">樣式規則</text>
+<path class="d-line" d="M87 146 L150 184" marker-end="url(#m02u01-arrow)"/>
+<path class="d-line" d="M273 146 L210 184" marker-end="url(#m02u01-arrow)"/>
+<rect class="d-box" x="60" y="188" width="240" height="44" rx="6"/><text class="d-text" x="180" y="208" text-anchor="middle">算出每個節點的樣式</text><text class="d-small" x="180" y="225" text-anchor="middle">什麼東西、長什麼樣子</text>
+<path class="d-line" d="M180 234 V258" marker-end="url(#m02u01-arrow)"/>
+<rect class="d-box" x="60" y="262" width="240" height="44" rx="6"/><text class="d-text" x="180" y="282" text-anchor="middle">排版</text><text class="d-small" x="180" y="299" text-anchor="middle">依螢幕寬度算位置與尺寸</text>
+<path class="d-line" d="M180 308 V332" marker-end="url(#m02u01-arrow)"/>
+<rect class="d-box" x="60" y="336" width="240" height="32" rx="6"/><text class="d-text" x="180" y="357" text-anchor="middle">繪製到螢幕上</text>
+<rect class="d-zone" x="12" y="380" width="336" height="32" rx="6"/><text class="d-small" x="180" y="400" text-anchor="middle">JavaScript 修改 DOM → 樣式、排版、繪製重做</text>
+<path class="d-line" d="M30 380 V148" marker-end="url(#m02u01-arrow)"/>
+</svg>

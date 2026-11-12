@@ -1,0 +1,5 @@
+id: m03
+number: 3
+title: API 與系統溝通
+summary: 系統之間怎麼約定溝通方式、最常見的 REST 與 JSON 長什麼樣子、什麼時候改用其他做法、誰主動通知誰，以及出錯、改版與流量過大時怎麼保護彼此。
+portfolio: API 技術選擇速查表
