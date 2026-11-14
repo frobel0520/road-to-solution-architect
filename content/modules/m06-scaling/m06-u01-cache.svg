@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280"><title>快取命中與快取未命中的請求路徑比較</title>
+<defs><marker id="m06u01-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-box" x="16" y="18" width="76" height="44" rx="6"/><text class="d-small" x="54" y="44" text-anchor="middle">顧客請求</text>
+<path class="d-line" d="M94 40 H130" marker-end="url(#m06u01-arrow)"/>
+<rect class="d-box d-accent" x="134" y="18" width="100" height="44" rx="6"/><text class="d-small" x="184" y="37" text-anchor="middle">記憶體快取</text><text class="d-small" x="184" y="53" text-anchor="middle">（毫秒級讀取）</text>
+<path class="d-line" d="M184 64 V104" marker-end="url(#m06u01-arrow)"/>
+<text class="d-small" x="192" y="88">未命中（Miss）</text>
+<rect class="d-box" x="134" y="108" width="100" height="44" rx="6"/><text class="d-small" x="184" y="127" text-anchor="middle">主資料庫</text><text class="d-small" x="184" y="143" text-anchor="middle">（磁碟查詢）</text>
+<path class="d-line" d="M236 40 H272" marker-end="url(#m06u01-arrow)"/>
+<rect class="d-box" x="276" y="18" width="72" height="44" rx="6"/><text class="d-small" x="312" y="37" text-anchor="middle">命中</text><text class="d-small" x="312" y="53" text-anchor="middle">直接回傳</text>
+
+<rect class="d-zone" x="16" y="172" width="328" height="94" rx="8"/>
+<text class="d-title" x="28" y="194">快取放置的三個常見位置</text>
+<rect class="d-box" x="28" y="208" width="94" height="44" rx="6"/><text class="d-small" x="75" y="227" text-anchor="middle">瀏覽器／App</text><text class="d-small" x="75" y="243" text-anchor="middle">圖片與靜態檔</text>
+<rect class="d-box" x="133" y="208" width="94" height="44" rx="6"/><text class="d-small" x="180" y="227" text-anchor="middle">CDN 邊緣</text><text class="d-small" x="180" y="243" text-anchor="middle">公開商品頁</text>
+<rect class="d-box d-accent" x="238" y="208" width="94" height="44" rx="6"/><text class="d-small" x="285" y="227" text-anchor="middle">後端記憶體</text><text class="d-small" x="285" y="243" text-anchor="middle">熱銷排行與設定</text>
+</svg>
