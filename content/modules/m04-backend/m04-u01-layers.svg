@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320"><title>伺服器、作業系統、runtime 與後端框架的層層關係</title>
+<defs><marker id="m04u01-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-box" x="100" y="12" width="160" height="40" rx="6"/><text class="d-text" x="180" y="37" text-anchor="middle">顧客瀏覽器 / App</text>
+<path class="d-line" d="M180 54 V84" marker-end="url(#m04u01-arrow)"/>
+<text class="d-small" x="188" y="73">HTTP 請求</text>
+<rect class="d-zone" x="16" y="88" width="328" height="216" rx="8"/>
+<text class="d-small" x="28" y="106">伺服器（實體主機或虛擬機器）</text>
+<rect class="d-box d-accent" x="36" y="118" width="288" height="48" rx="6"/><text class="d-text" x="180" y="139" text-anchor="middle">商業邏輯（Example Retail 寫的程式）</text><text class="d-small" x="180" y="157" text-anchor="middle">算折扣、扣點數、建立訂單</text>
+<rect class="d-box" x="36" y="174" width="288" height="42" rx="6"/><text class="d-text" x="180" y="193" text-anchor="middle">後端框架（Framework）</text><text class="d-small" x="180" y="209" text-anchor="middle">網址路由、檢查輸入、組裝回應、錯誤處理</text>
+<rect class="d-box" x="36" y="224" width="288" height="36" rx="6"/><text class="d-text" x="180" y="241" text-anchor="middle">執行環境（Runtime）</text><text class="d-small" x="180" y="254" text-anchor="middle">把程式語言翻譯成機器指令並管理記憶體</text>
+<rect class="d-box" x="36" y="268" width="288" height="28" rx="6"/><text class="d-small" x="180" y="286" text-anchor="middle">作業系統與硬體（CPU、記憶體、網路卡）</text>
+</svg>

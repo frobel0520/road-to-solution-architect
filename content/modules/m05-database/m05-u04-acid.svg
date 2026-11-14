@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280"><title>資料庫交易（Transaction）要麼全部成功提交，要麼全部回滾復原</title>
+<defs><marker id="m05u04-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-zone" x="12" y="12" width="336" height="126" rx="8"/>
+<text class="d-title" x="24" y="32">包在同一個交易（Transaction）裡的三個動作</text>
+<rect class="d-box d-accent" x="24" y="48" width="96" height="44" rx="6"/><text class="d-small" x="72" y="67" text-anchor="middle">1. 扣除點數</text><text class="d-small" x="72" y="83" text-anchor="middle">-500 點</text>
+<path class="d-line" d="M122 70 H134" marker-end="url(#m05u04-arrow)"/>
+<rect class="d-box d-accent" x="138" y="48" width="96" height="44" rx="6"/><text class="d-small" x="186" y="67" text-anchor="middle">2. 扣商品庫存</text><text class="d-small" x="186" y="83" text-anchor="middle">-1 件</text>
+<path class="d-line" d="M236 70 H248" marker-end="url(#m05u04-arrow)"/>
+<rect class="d-box d-accent" x="252" y="48" width="84" height="44" rx="6"/><text class="d-small" x="294" y="67" text-anchor="middle">3. 寫入訂單</text><text class="d-small" x="294" y="83" text-anchor="middle">建立成功</text>
+<text class="d-small" x="180" y="118" text-anchor="middle">三個步驟綁成一個「不可分割的整體」</text>
+
+<path class="d-line" d="M100 140 V172" marker-end="url(#m05u04-arrow)"/>
+<path class="d-line" d="M260 140 V172" marker-end="url(#m05u04-arrow)"/>
+
+<rect class="d-box" x="16" y="176" width="156" height="76" rx="6"/>
+<text class="d-title" x="94" y="198" text-anchor="middle">全部成功 → 提交</text>
+<text class="d-small" x="94" y="218" text-anchor="middle">Commit</text>
+<text class="d-small" x="94" y="236" text-anchor="middle">三件事同時永久生效</text>
+
+<rect class="d-box" x="188" y="176" width="156" height="76" rx="6"/>
+<text class="d-title" x="266" y="198" text-anchor="middle">任一步失敗 → 回滾</text>
+<text class="d-small" x="266" y="218" text-anchor="middle">Rollback</text>
+<text class="d-small" x="266" y="236" text-anchor="middle">已扣的點數自動退回</text>
+</svg>
