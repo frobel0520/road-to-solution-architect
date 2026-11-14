@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280"><title>網路分區發生時，系統必須在一致性（CP）與可用性（AP）之間二選一</title>
+<defs><marker id="m06u04-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-zone" x="16" y="12" width="328" height="86" rx="8"/>
+<text class="d-title" x="180" y="34" text-anchor="middle">當兩地機房之間的網路斷線（發生網路分區 P）</text>
+<rect class="d-box" x="30" y="46" width="110" height="40" rx="6"/><text class="d-small" x="85" y="70" text-anchor="middle">北區節點</text>
+<path class="d-line" d="M144 66 H216"/>
+<text class="d-small" x="180" y="60" text-anchor="middle">✕ 斷線無法同步</text>
+<rect class="d-box" x="220" y="46" width="110" height="40" rx="6"/><text class="d-small" x="275" y="70" text-anchor="middle">南區節點</text>
+
+<path class="d-line" d="M92 100 V132" marker-end="url(#m06u04-arrow)"/>
+<path class="d-line" d="M268 100 V132" marker-end="url(#m06u04-arrow)"/>
+
+<rect class="d-box d-accent" x="16" y="136" width="156" height="124" rx="6"/>
+<text class="d-title" x="94" y="160" text-anchor="middle">選一致性（CP）</text>
+<text class="d-small" x="94" y="184" text-anchor="middle">寧可暫停部分服務</text>
+<text class="d-small" x="94" y="202" text-anchor="middle">也不讓兩邊資料打架</text>
+<text class="d-small" x="94" y="232" text-anchor="middle">例：點數扣款、限量庫存</text>
+<text class="d-small" x="94" y="248" text-anchor="middle">（絕不能重複扣或超賣）</text>
+
+<rect class="d-box" x="188" y="136" width="156" height="124" rx="6"/>
+<text class="d-title" x="266" y="160" text-anchor="middle">選可用性（AP）</text>
+<text class="d-small" x="266" y="184" text-anchor="middle">兩邊繼續接單服務</text>
+<text class="d-small" x="266" y="202" text-anchor="middle">網路恢復後再合併衝突</text>
+<text class="d-small" x="266" y="232" text-anchor="middle">例：購物車暫存、門市</text>
+<text class="d-small" x="266" y="248" text-anchor="middle">離線收銀後補上傳</text>
+</svg>

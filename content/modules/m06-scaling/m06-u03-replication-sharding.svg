@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 300"><title>資料庫讀寫分離與水平分片比較</title>
+<defs><marker id="m06u03-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-zone" x="10" y="10" width="340" height="146" rx="8"/>
+<text class="d-title" x="22" y="30">讀寫分離（主從複寫：應付「讀遠多於寫」）</text>
+<rect class="d-box" x="22" y="48" width="76" height="44" rx="6"/><text class="d-small" x="60" y="74" text-anchor="middle">後端程式</text>
+<path class="d-line" d="M100 60 H136" marker-end="url(#m06u03-arrow)"/>
+<text class="d-small" x="118" y="54" text-anchor="middle">寫入</text>
+<rect class="d-box d-accent" x="140" y="42" width="84" height="38" rx="6"/><text class="d-small" x="182" y="65" text-anchor="middle">主庫（寫）</text>
+<path class="d-line" d="M226 61 H254" marker-end="url(#m06u03-arrow)"/>
+<text class="d-small" x="240" y="54" text-anchor="middle">同步</text>
+<rect class="d-box" x="258" y="42" width="80" height="38" rx="6"/><text class="d-small" x="298" y="65" text-anchor="middle">從庫 1（讀）</text>
+<path class="d-line" d="M100 80 L254 114" marker-end="url(#m06u03-arrow)"/>
+<text class="d-small" x="172" y="108" text-anchor="middle">查詢／報表</text>
+<rect class="d-box" x="258" y="96" width="80" height="38" rx="6"/><text class="d-small" x="298" y="119" text-anchor="middle">從庫 2（讀）</text>
+<text class="d-small" x="180" y="147" text-anchor="middle">複寫可能有毫秒到秒級延遲（主從延遲）</text>
+
+<rect class="d-zone" x="10" y="168" width="340" height="122" rx="8"/>
+<text class="d-title" x="22" y="188">水平分片（Sharding：應付「資料太大、寫入太滿」）</text>
+<rect class="d-box d-accent" x="22" y="204" width="96" height="44" rx="6"/><text class="d-small" x="70" y="223" text-anchor="middle">分片 1</text><text class="d-small" x="70" y="239" text-anchor="middle">會員 1～30萬</text>
+<rect class="d-box d-accent" x="132" y="204" width="96" height="44" rx="6"/><text class="d-small" x="180" y="223" text-anchor="middle">分片 2</text><text class="d-small" x="180" y="239" text-anchor="middle">會員 30～60萬</text>
+<rect class="d-box d-accent" x="242" y="204" width="96" height="44" rx="6"/><text class="d-small" x="290" y="223" text-anchor="middle">分片 3</text><text class="d-small" x="290" y="239" text-anchor="middle">會員 60～90萬</text>
+<text class="d-small" x="180" y="274" text-anchor="middle">依分片鍵拆散儲存與寫入，但跨分片 JOIN 變極難</text>
+</svg>
