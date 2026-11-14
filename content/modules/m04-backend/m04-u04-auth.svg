@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 310"><title>認證（確認你是誰）與授權（確認你能做什麼）的兩道關卡</title>
+<defs><marker id="m04u04-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-box" x="100" y="10" width="160" height="36" rx="6"/><text class="d-text" x="180" y="33" text-anchor="middle">顧客發起請求</text>
+<path class="d-line" d="M180 48 V72" marker-end="url(#m04u04-arrow)"/>
+<rect class="d-zone" x="16" y="76" width="328" height="90" rx="8"/>
+<text class="d-title" x="28" y="96">第一關：認證（Authentication）— 你是誰？</text>
+<rect class="d-box d-accent" x="32" y="108" width="140" height="44" rx="6"/><text class="d-small" x="102" y="127" text-anchor="middle">檢查憑證</text><text class="d-small" x="102" y="143" text-anchor="middle">Session ID 或 Token</text>
+<path class="d-line" d="M174 130 H202" marker-end="url(#m04u04-arrow)"/>
+<rect class="d-box" x="206" y="108" width="122" height="44" rx="6"/><text class="d-small" x="267" y="127" text-anchor="middle">確認身分</text><text class="d-small" x="267" y="143" text-anchor="middle">會員編號 5012</text>
+
+<path class="d-line" d="M180 168 V192" marker-end="url(#m04u04-arrow)"/>
+<rect class="d-zone" x="16" y="196" width="328" height="102" rx="8"/>
+<text class="d-title" x="28" y="216">第二關：授權（Authorization）— 你能做什麼？</text>
+<rect class="d-box" x="32" y="228" width="136" height="54" rx="6"/><text class="d-small" x="100" y="248" text-anchor="middle">查自己的訂單</text><text class="d-small" x="100" y="264" text-anchor="middle">允許（200 OK）</text>
+<rect class="d-box" x="192" y="228" width="136" height="54" rx="6"/><text class="d-small" x="260" y="248" text-anchor="middle">改別人的點數</text><text class="d-small" x="260" y="264" text-anchor="middle">拒絕（403）</text>
+</svg>

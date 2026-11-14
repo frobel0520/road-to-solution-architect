@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280"><title>會員資料表與訂單資料表透過主鍵與外鍵建立關聯</title>
+<defs><marker id="m05u01-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-zone" x="12" y="16" width="144" height="190" rx="8"/>
+<text class="d-title" x="84" y="38" text-anchor="middle">會員表 (members)</text>
+<rect class="d-box d-accent" x="24" y="52" width="120" height="36" rx="6"/><text class="d-small" x="84" y="74" text-anchor="middle">id (主鍵 PK): 501</text>
+<rect class="d-box" x="24" y="96" width="120" height="32" rx="6"/><text class="d-small" x="84" y="116" text-anchor="middle">name: 陳小美</text>
+<rect class="d-box" x="24" y="136" width="120" height="32" rx="6"/><text class="d-small" x="84" y="156" text-anchor="middle">points: 1200</text>
+<text class="d-small" x="84" y="192" text-anchor="middle">每筆會員唯一編號</text>
+
+<rect class="d-zone" x="204" y="16" width="144" height="190" rx="8"/>
+<text class="d-title" x="276" y="38" text-anchor="middle">訂單表 (orders)</text>
+<rect class="d-box" x="216" y="52" width="120" height="36" rx="6"/><text class="d-small" x="276" y="74" text-anchor="middle">id (主鍵 PK): 9001</text>
+<rect class="d-box d-accent" x="216" y="96" width="120" height="36" rx="6"/><text class="d-small" x="276" y="118" text-anchor="middle">member_id (外鍵): 501</text>
+<rect class="d-box" x="216" y="140" width="120" height="32" rx="6"/><text class="d-small" x="276" y="160" text-anchor="middle">total: 850</text>
+<text class="d-small" x="276" y="192" text-anchor="middle">指向哪位會員下單</text>
+
+<path class="d-line" d="M214 114 H178 V70 H148" marker-end="url(#m05u01-arrow)"/>
+<text class="d-small" x="180" y="236" text-anchor="middle">外鍵保證「訂單上的會員編號」一定真實存在</text>
+<text class="d-small" x="180" y="258" text-anchor="middle">SQL 用 JOIN 把兩張表的資料配對查出來</text>
+</svg>

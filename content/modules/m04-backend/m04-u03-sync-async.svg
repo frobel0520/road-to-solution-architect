@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 300"><title>結帳流程中同步處理與非同步背景處理的分工</title>
+<defs><marker id="m04u03-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path class="d-arrow" d="M0,0 L8,4 L0,8 z"/></marker></defs>
+<rect class="d-zone" x="8" y="10" width="344" height="130" rx="8"/>
+<text class="d-title" x="20" y="30">同步處理（顧客在畫面等待結果）</text>
+<rect class="d-box" x="18" y="46" width="76" height="44" rx="6"/><text class="d-small" x="56" y="72" text-anchor="middle">顧客按結帳</text>
+<path class="d-line" d="M96 68 H118" marker-end="url(#m04u03-arrow)"/>
+<rect class="d-box d-accent" x="122" y="46" width="116" height="44" rx="6"/><text class="d-small" x="180" y="65" text-anchor="middle">扣庫存＋收款</text><text class="d-small" x="180" y="81" text-anchor="middle">寫入訂單</text>
+<path class="d-line" d="M240 68 H262" marker-end="url(#m04u03-arrow)"/>
+<rect class="d-box" x="266" y="46" width="76" height="44" rx="6"/><text class="d-small" x="304" y="65" text-anchor="middle">立刻回覆</text><text class="d-small" x="304" y="81" text-anchor="middle">訂購成功</text>
+<text class="d-small" x="180" y="122" text-anchor="middle">必須在幾百毫秒內完成，不能讓顧客一直轉圈</text>
+
+<path class="d-line" d="M180 92 V166" marker-end="url(#m04u03-arrow)"/>
+<text class="d-small" x="188" y="156">放入背景工作清單</text>
+
+<rect class="d-zone" x="8" y="170" width="344" height="118" rx="8"/>
+<text class="d-title" x="20" y="190">非同步處理（背景慢慢消化，失敗可重試）</text>
+<rect class="d-box" x="22" y="206" width="96" height="48" rx="6"/><text class="d-small" x="70" y="227" text-anchor="middle">寄確認信</text><text class="d-small" x="70" y="243" text-anchor="middle">發推播通知</text>
+<rect class="d-box" x="132" y="206" width="96" height="48" rx="6"/><text class="d-small" x="180" y="227" text-anchor="middle">通知物流商</text><text class="d-small" x="180" y="243" text-anchor="middle">準備出貨</text>
+<rect class="d-box" x="242" y="206" width="96" height="48" rx="6"/><text class="d-small" x="290" y="227" text-anchor="middle">計算會員</text><text class="d-small" x="290" y="243" text-anchor="middle">消費點數</text>
+<text class="d-small" x="180" y="274" text-anchor="middle">背景 worker 依序領取執行，不影響結帳速度</text>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 300"><title>NoSQL 的四種類型與各自資料形狀</title>
+<rect class="d-box d-accent" x="12" y="14" width="162" height="128" rx="6"/>
+<text class="d-title" x="93" y="38" text-anchor="middle">1. 文件型 (Document)</text>
+<text class="d-small" x="93" y="62" text-anchor="middle">像 JSON 樹狀文件</text>
+<text class="d-small" x="93" y="82" text-anchor="middle">每筆欄位可以不同</text>
+<text class="d-small" x="93" y="114" text-anchor="middle">例：規格多變的商品目錄</text>
+
+<rect class="d-box" x="186" y="14" width="162" height="128" rx="6"/>
+<text class="d-title" x="267" y="38" text-anchor="middle">2. 鍵值型 (Key-Value)</text>
+<text class="d-small" x="267" y="62" text-anchor="middle">一個 Key 對一個 Value</text>
+<text class="d-small" x="267" y="82" text-anchor="middle">極快，不支援複雜篩選</text>
+<text class="d-small" x="267" y="114" text-anchor="middle">例：購物車、登入 Session</text>
+
+<rect class="d-box" x="12" y="156" width="162" height="128" rx="6"/>
+<text class="d-title" x="93" y="180" text-anchor="middle">3. 寬欄型 (Wide-Column)</text>
+<text class="d-small" x="93" y="204" text-anchor="middle">依列與欄位族大量寫入</text>
+<text class="d-small" x="93" y="224" text-anchor="middle">橫向擴展海量時間序列</text>
+<text class="d-small" x="93" y="256" text-anchor="middle">例：百萬筆點擊與感測紀錄</text>
+
+<rect class="d-box" x="186" y="156" width="162" height="128" rx="6"/>
+<text class="d-title" x="267" y="180" text-anchor="middle">4. 圖形型 (Graph)</text>
+<text class="d-small" x="267" y="204" text-anchor="middle">節點與邊（關係網路）</text>
+<text class="d-small" x="267" y="224" text-anchor="middle">擅長找多層關聯路徑</text>
+<text class="d-small" x="267" y="256" text-anchor="middle">例：買 A 的人也買了 B</text>
+</svg>
