@@ -36,7 +36,8 @@ function measure(page: string) {
 	const cssBytes = css.reduce((sum, url) => sum + gz(assetPath(url)), 0);
 	const jsBytes = [...scripts].reduce((sum, url) => sum + gz(assetPath(url)), 0);
 	const htmlBytes = gz(page);
-	return { page: posix.normalize(page.replaceAll("\\", "/").replace(`${dist}/`, "/")), htmlBytes, cssBytes, jsBytes, totalBytes: htmlBytes + cssBytes + jsBytes };
+	const hasUninlinedImage = /__ASTRO_IMAGE_|<img\b/i.test(html);
+	return { page: posix.normalize(page.replaceAll("\\", "/").replace(`${dist}/`, "/")), htmlBytes, cssBytes, jsBytes, totalBytes: htmlBytes + cssBytes + jsBytes, hasUninlinedImage };
 }
 
 function htmlPages(dir: string): string[] {
@@ -49,7 +50,7 @@ function htmlPages(dir: string): string[] {
 
 const results = htmlPages(dist).map(measure).sort((a, b) => b.totalBytes - a.totalBytes);
 const unitPages = results.filter((result) => result.page.startsWith("/units/"));
-const failures = unitPages.filter((result) => result.totalBytes > TOTAL_LIMIT || result.jsBytes > JS_LIMIT);
+const failures = unitPages.filter((result) => result.totalBytes > TOTAL_LIMIT || result.jsBytes > JS_LIMIT || result.hasUninlinedImage);
 const kb = (bytes: number) => `${(bytes / 1024).toFixed(1)} KB`;
 
 console.log(`頁面數 ${results.length}，單元頁 ${unitPages.length}（預算只套用在單元頁）`);
@@ -57,7 +58,9 @@ for (const result of results.slice(0, 8)) {
 	console.log(`${result.page}  total ${kb(result.totalBytes)}（HTML ${kb(result.htmlBytes)}、CSS ${kb(result.cssBytes)}、JS ${kb(result.jsBytes)}）`);
 }
 if (unitPages.length === 0) console.log("沒有單元頁：預算為「待驗收」，不算通過。");
-for (const failure of failures) console.error(`超出預算：${failure.page} total ${kb(failure.totalBytes)}／JS ${kb(failure.jsBytes)}`);
+for (const failure of failures) {
+	console.error(`建置檢查失敗：${failure.page} total ${kb(failure.totalBytes)}／JS ${kb(failure.jsBytes)}${failure.hasUninlinedImage ? "（殘留未內嵌圖片）" : ""}`);
+}
 
 if (jsonOut) {
 	writeFileSync(jsonOut, JSON.stringify({ dist, limits: { totalBytes: TOTAL_LIMIT, jsBytes: JS_LIMIT }, unitPages, otherPages: results.filter((r) => !unitPages.includes(r)) }, null, 2));

@@ -1,6 +1,6 @@
 // 畫面共用：開啟進度 store，在無法儲存或資料損壞時顯示提示。
 // storage 讀出的值只當資料用：一律用 textContent／屬性設定，不插入成 HTML。
-import type { Progress } from "../progress/model.ts";
+import { merge, type Progress } from "../progress/model.ts";
 import { browserStorage, ProgressStore, type LoadState } from "../progress/storage.ts";
 
 export interface ProgressSession {
@@ -18,8 +18,11 @@ export function openProgress(onReady: ReadyHandler): ProgressSession {
 		store,
 		state: store.load(),
 		save(progress) {
-			if (store.save(progress)) {
-				session.state = { status: "ready", progress };
+			// 多分頁同時開啟時，先與 storage 最新資料逐單元合併再寫回，避免舊分頁覆蓋新分頁進度。
+			const latest = store.load();
+			const next = latest.status === "ready" ? merge(latest.progress, progress) : progress;
+			if (store.save(next)) {
+				session.state = { status: "ready", progress: next };
 				return true;
 			}
 			session.state = { status: "unavailable" };

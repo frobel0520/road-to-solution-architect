@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-	site: "https://road-to-solution-architect.workers.dev",
+	site: "https://road-to-solution-architect.curio-lab.workers.dev",
 	outDir: process.env.RTSA_OUT_DIR ?? "dist",
 	trailingSlash: "always",
 	build: {
